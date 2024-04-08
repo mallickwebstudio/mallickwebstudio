@@ -1,12 +1,10 @@
-import SparkleText from "@/components/helper/SparkleText";
-import Form from "../../../components/helper/Form";
+import Contact from "@/components/shared/Contact";
 
 export default function page() {
     return (
-        <section>
-            <h2 className="md:text-center"><SparkleText text="Get in Touch" /></h2>
-            <p className="text-center text-muted-foreground w-11/12 md:w-1/2 mx-auto">Feel free to drop me a message anytime.</p>
-            <Form />
-        </section>
+        <Contact
+            title="Get in Touch"
+            subTitle="Feel free to drop me a message anytime."
+        />
     );
 }

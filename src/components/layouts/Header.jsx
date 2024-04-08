@@ -8,12 +8,35 @@ import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
 
 
+const navigationLinks = [
+  {
+    title: "Home",
+    path: "/",
+    varient: "ghost"
+  },
+  {
+    title: "Portfolio",
+    path: "/portfolio",
+    varient: "ghost"
+  },
+  {
+    title: "Contact Us",
+    path: "/contact",
+    varient: "ghost"
+  },
+  {
+    title: "Hire Now",
+    path: "/hire-now",
+    varient: ""
+  },
+]
+
 export default function Header() {
   const path = usePathname();
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
-    <header className='w-full bg-background'>
+    <header className='container p-0 w-full bg-background'>
       <nav className="px-[5%] py-2 w-full grid grid-cols-2 justify-center items-center">
 
         <Link className="w-fit flex-center" href="/">
@@ -27,10 +50,15 @@ export default function Header() {
         </div>
 
         <ul className={`link-box relative w-full flex-center justify-center md:justify-end col-span-2 md:col-span-1 flex-col gap-4 justify-self-start  md:justify-self-end md:flex-row md:flex ${isNavbarOpen ? 'flex' : 'hidden'}`}>
-          <Link className={`${buttonVariants({ variant: "ghost", size: 'sm' })} ${path === "/" && "bg-accent"} capitalize text-muted-foreground`} href="/">Home</Link>
-          <Link className={`${buttonVariants({ variant: "ghost", size: 'sm' })} ${path === "/portfolio" && "bg-accent"} capitalize text-muted-foreground`} href="/portfolio">Portfolio</Link>
-          <Link className={`${buttonVariants({ variant: "ghost", size: 'sm' })} ${path === "/contact" && "bg-accent"} capitalize text-muted-foreground`} href="/contact">Contact</Link>
-          <Link className={`${buttonVariants({ variant: "ghost", size: 'sm' })} ${path === "/hire-me" && "bg-accent"} capitalize text-muted-foreground`} href="/hire-now">Hire Now</Link>
+          {
+            navigationLinks.map((item) => (
+              <li key={item.title}>
+                <Link className={`${buttonVariants({ variant: item.varient, size: 'sm' })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`} href={item.path}>
+                  {item.title}
+                </Link>
+              </li>
+            ))
+          }
           <ThemeToggleBtn />
         </ul>
       </nav>

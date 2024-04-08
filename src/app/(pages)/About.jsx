@@ -15,6 +15,7 @@ export default function About() {
             <section>
                 <h2 className="md:text-center"><span className="clr-p"><SparkleText text="Tech Stack" /> </span> I Handle</h2>
                 <div className="mt-8 w-full flex gap-6 flex-wrap justify-around">
+                    {/* Languages */}
                     <div className="w-fit border rounded">
                         <div className="py-4 bg-muted text-2xl font-semibold text-center">Languages</div>
                         <div className="p-2 flex gap-4 flex-center flex-wrap">
@@ -23,6 +24,8 @@ export default function About() {
                             <TechCard img="./images/icons/js.svg" label="JS" />
                         </div>
                     </div>
+
+                    {/* Others */}
                     <div className="w-fit border rounded">
                         <div className="py-4 bg-muted text-2xl font-semibold text-center">Others</div>
                         <div className="p-2 flex gap-4 flex-center flex-wrap w-fit">
@@ -32,6 +35,8 @@ export default function About() {
                             <TechCard img="./images/icons/vs-code.svg" label="VS-code" />
                         </div>
                     </div>
+
+                    {/* Technologies */}
                     <div className="w-fit border rounded">
                         <div className="py-4 bg-muted text-2xl font-semibold text-center">Technologies</div>
                         <div className="p-2 flex gap-4 flex-center flex-wrap w-fit">
@@ -43,6 +48,8 @@ export default function About() {
                             <TechCard icon={<IExpress className="w-fit h-fit text-foreground" />} label="Express" />
                             <TechCard img="./images/icons/mongodb.svg" label="MongoDB" />
                             <TechCard img="./images/icons/appwrite.svg" label="AppWrite" />
+                            <TechCard img="./images/icons/sanity.svg" label="Sanity" />
+                            <TechCard img="./images/icons/tanstack-query.svg" label="Tanstack Query" />
                         </div>
                     </div>
                 </div>

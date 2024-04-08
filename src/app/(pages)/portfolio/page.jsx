@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function Page() {
   return (
     <section className="section-padding">
-      <h1 className="mb-8">Showcase <SparkleText text="Projects" /></h1>
-      <div className="my-6 grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))]">
+      <h1 className="text-center">Showcase <SparkleText text="Projects" /></h1>
+      <div className="my-10 grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))]">
         {
           projectsData.map((project, index) => (
             <ProjectCard
@@ -17,12 +17,12 @@ export default function Page() {
               desc={project.desc}
               link={project.link}
               concept={project.concept}
-              img={project.img}
+              imageUrl={project.imageUrl}
             />
           ))
         }
       </div>
-      <div className="mt-6 w-full flex-center">
+      <div className="w-full flex-center">
         <Link href="/hire-now" className={buttonVariants({variant:"secondary"})}>Hire For Project</Link>
       </div>
     </section>

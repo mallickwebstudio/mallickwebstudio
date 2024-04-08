@@ -24,14 +24,17 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="w-full bg-contain flex-center md:col-span-2 rounded-2xl overflow-hidden" >
-                    <Image
-                        className="relative object-contain object-center rounded"
-                        width={5000}
-                        height={5000}
-                        src="/hero.svg"
-                        alt="hero"
-                    />
+                <div className="relative md:col-span-2">
+                    <div className="hero-blob"></div>
+                    <div className="relative w-full bg-contain flex-center rounded overflow-hidden" >
+                        <Image
+                            className="relative object-contain object-center rounded"
+                            width={5000}
+                            height={5000}
+                            src="/hero.svg"
+                            alt="hero"
+                        />
+                    </div>
                 </div>
             </div>
 

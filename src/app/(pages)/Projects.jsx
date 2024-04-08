@@ -20,11 +20,11 @@ export default function Projects() {
                         desc={item.desc}
                         concept={item.concept}
                         link={item.link}
-                        img={item.img} />
+                        imageUrl={item.imageUrl} />
                 ))}
             </div>
-            <div className="my-10 flex-center">
-                <Link href="/projects" className={buttonVariants({ variant: "secondary" })}>View More</Link>
+            <div className="mt-10 flex-center">
+                <Link href="/portfolio" className={buttonVariants({ variant: "secondary" })}>View More</Link>
             </div>
         </section>
     )

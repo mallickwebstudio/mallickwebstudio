@@ -58,23 +58,17 @@
   }
 
   body {
-    @apply mx-auto max-w-[1440px] bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-
-  section,
-  .section {
-    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-12 lg:py-14;
-  }
-
   h1 {
-    @apply scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl;
+    @apply scroll-m-20 text-5xl font-extrabold tracking-tight;
   }
 
   h2 {
-    @apply scroll-m-20 mt-16 mb-6 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 mt-16 mb-6 text-4xl font-semibold tracking-tight first:mt-0;
   }
 
   h3 {
@@ -89,11 +83,39 @@
     @apply leading-7 [&:not(:first-child)]:mt-6;
   }
 
+  section,
+  .section {
+    @apply mx-auto container p-6 sm:py-12 md:p-16 lg:p-20;
+  }
+
   .flex-center {
     @apply flex justify-center items-center;
   }
 
   .flex-between {
     @apply flex justify-between items-center;
+  }
+
+  .hero-blob {
+    position: absolute;
+    left: 70%;
+    top: 8rem;
+    width: 1px;
+    height: 1px;
+    animation: changeHue 10s infinite;
+  }
+
+  @keyframes changeHue {
+    0% {
+      box-shadow: 0 0 200px 100px #211d6a;
+    }
+
+    50% {
+      box-shadow: 0 0 200px 100px #2e27ac;
+    }
+
+    100% {
+      box-shadow: 0 0 200px 100px #211d6a;
+    }
   }
 }

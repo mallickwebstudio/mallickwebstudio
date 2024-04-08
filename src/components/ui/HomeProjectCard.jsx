@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HomeProjectCard({ position, title, concept, desc, link, img }) {
+export default function HomeProjectCard({ position, title, concept, desc, link, imageUrl }) {
     return (
         <Link className={`relative w-full md:w-4/5 rounded-md overflow-hidden transition-all group ${position % 2 === 0 ? "self-start" : "self-end"}`} href={link} target="_blank">
-            <div className="img-box z-0">
+            <div className="img-box aspect-video overflow-hidden z-0">
                 <Image
-                    src={img}
+                    src={imageUrl}
                     alt={title}
                     width={1600}
                     height={900}
                 />
             </div>
+            
             <div className="absolute -bottom-full left-0 right-0 group-hover:bottom-[0%]  py-4 sm:py-8 md:py-12 px-4 md:px-8 bg-muted transition-all">
                 <div className="grid grid-cols-2">
                     <div className="">
