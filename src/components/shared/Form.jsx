@@ -1,71 +1,209 @@
 "use client"
+import { useState } from "react";
+import { budgetData } from "@/lib/const";
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { toast } from "@/components/ui/use-toast";
+import { Switch } from "@/components/ui/switch";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
 
-export default function Form() {
-    const { toast } = useToast()
+const FormSchema = z.object({
+    fullname: z.string(),
+    email: z.string(),
+    isHiring: z.boolean(),
+    budget: z.string(),
+    message: z.string()
+})
+
+export default function FormBox() {
     const [btnDisable, setBtnDisable] = useState(false);
-    const [loading, setLoading] = useState(false);
-    async function handleSubmit(event) {
-        event.preventDefault();
-        setLoading(true);
-        setBtnDisable(true);
-        const formData = new FormData(event.target);
-        formData.append("access_key", process.env.NEXT_PUBLIC_ACCESS_KEY);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+    // REACT HOOK FORM
+    const form = useForm({
+        resolver: zodResolver(FormSchema),
+        defaultValues: {
+            fullname: "",
+            email: "",
+            isHiring: false,
+            budget: "not defined",
+            message: "",
+        },
+    })
+    const { handleSubmit, control, formState: { isSubmitting } } = form;
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: json
-        });
-        const result = await response.json();
-        setLoading(false);
-
-        if (!result.success || !response) {
-            toast({
-                variant: "destructive",
-                title: "Something went wrong while submitting the form. Please try again later.",
+    //HANDLE SUBMIT
+    const onSubmit = async (data) => {
+        try {
+            setBtnDisable(true)
+            const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
-        } else if (result.success) {
-            toast({
-                title: "Thank You for Reaching Out!",
-                description: "Your message has been successfully sent. I will get back to you as soon as possible",
-            });
-
-            setTimeout(() => {
-                setBtnDisable(false)
-            }, 60000);
+            if (!response.ok) {
+                toast({
+                    variant: "destructive",
+                    title: "Something went wrong while submitting the form. Please try again later.",
+                });
+                setBtnDisable(false);
+                const responseData = await response.json();
+                console.error('Form submission failed:', responseData);
+            } else if (response.ok) {
+                toast({
+                    title: "Thank You for Reaching Out!",
+                    description: "Your message has been successfully sent. We will get back to you as soon as possible",
+                });
+                setTimeout(() => {
+                    setBtnDisable(false)
+                }, 60000);
+            }
+        } catch (error) {
+            console.error('Error submitting form', error);
         }
-    }
+    };
 
     return (
-        <form className="p-4 mt-6 mx-auto w-11/12 md:w-1/2 flex flex-col gap-6 rounded-md" onSubmit={handleSubmit}>
-            <div className="w-full grid gap-2 items-center">
-                <Label htmlFor="fullname">Full Name</Label>
-                <Input className="w-full" type="text" name="fullname" id="fullname" required />
-            </div>
+        <>
+            <h1 className="text-center">Render = 1</h1>
+            {/* <MailBody /> */}
 
-            <div className="w-full grid gap-2 items-center">
-                <Label htmlFor="email">Email</Label>
-                <Input className="w-full" type="email" name="email" id="email" required />
-            </div>
+            <Form {...form}>
+                <form
+                    className="mt-6 mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
+                    onSubmit={handleSubmit(onSubmit)}
+                >
 
-            <div className="w-full grid gap-2 items-center">
-                <Label htmlFor="message">Message</Label>
-                <Textarea className="w-full" name="message" id="message" placeholder="Type your message here." required />
-            </div>
+                    {/* Full Name */}
+                    <FormField
+                        control={form.control}
+                        name="fullname"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="fullname">Full Name</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        id="fullname"
+                                        name="fullname"
+                                        type="text"
+                                        {...field}
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
 
-            <Button className="w-fit mx-auto" variant="secondary" disabled={btnDisable}>{loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Send{loading && "ing"} </Button>
-        </form>
+                    {/* email */}
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="email">Email</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        type="text"
+                                        {...field}
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+
+                    {/* is Hiring */}
+                    <FormField
+                        control={form.control}
+                        name="isHiring"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
+                                <FormControl>
+                                    <Switch
+                                        className="block"
+                                        id="isHiring"
+                                        name="isHiring"
+                                        checked={field.value}
+                                        onCheckedChange={field.onChange}
+                                    />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+
+                    {/* Hireing Package */}
+                    {form.watch("isHiring") ? <FormField
+                        control={form.control}
+                        name="budget"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Budget</FormLabel>
+                                <FormControl>
+                                    <RadioGroup
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                        className="flex gap-2 flex-wrap"
+                                        value={field.value}
+                                    >
+                                        {budgetData.map(item => (
+                                            <FormItem
+                                                key={item.id}>
+                                                <FormLabel
+                                                    className={`p-4 space-y-3 block border rounded cursor-pointer font-normal ${item.value === field.value && "border-primary"}`}
+                                                    htmlFor={item.value}>
+                                                    <FormControl>
+                                                        <RadioGroupItem
+                                                            id={item.value}
+                                                            name={item.value}
+                                                            value={item.value} />
+                                                    </FormControl>
+                                                    <div className="pointer-events-none cursor-pointer">
+                                                        {item.title}
+                                                    </div>
+                                                </FormLabel>
+                                            </FormItem>
+                                        ))}
+                                    </RadioGroup>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    /> : null}
+
+                    {/* email */}
+                    <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="message">Message</FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                        id="message"
+                                        name="message"
+                                        type="text"
+                                        {...field}
+                                        placeholder="Type your message here..."
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+
+                    <div className="flex-center">
+                        <Button className="w-fit" variant="secondary" disabled={isSubmitting || btnDisable}>
+                            {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
+                        </Button>
+                    </div>
+                </form>
+            </Form>
+        </>
     )
 }

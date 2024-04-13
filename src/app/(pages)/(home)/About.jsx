@@ -1,16 +1,18 @@
 import SparkleText from "@/components/helper/SparkleText";
-import TechCard from "../../components/ui/TechCard";
+import TechCard from "../../../components/ui/TechCard";
 import { IExpress, IGithub, INext, IShadcn } from "@/components/svgs/svgs";
 
 export default function About() {
     return (
         <>
-            <section id="about" className="relative bg-muted" >
-                <div>
-                    <h2 className="md:text-center"><SparkleText text="About" /> me</h2>
-                    <p className="md:mx-auto md:w-3/4 md:text-center text-muted-foreground">I&apos;m a skilled web developer with experience in JavaScript, and expertise in frameworks like React, Node.js. I&apos;m a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let&apos;s work together to bring your ideas to life!</p>
-                </div>
-            </section>
+            <div className=" bg-muted">
+                <section id="about" className="relative" >
+                    <div>
+                        <h2 className="md:text-center"><SparkleText text="About" /> me</h2>
+                        <p className="md:mx-auto md:w-3/4 md:text-center text-muted-foreground">I&apos;m a skilled web developer with experience in JavaScript, and expertise in frameworks like React, NextJS. I&apos;m a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let&apos;s work together to bring your ideas to life!</p>
+                    </div>
+                </section>
+            </div>
 
             <section>
                 <h2 className="md:text-center"><span className="clr-p"><SparkleText text="Tech Stack" /> </span> I Handle</h2>

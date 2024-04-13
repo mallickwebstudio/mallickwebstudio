@@ -6,30 +6,7 @@ import ThemeToggleBtn from "@/components/ui/ThemeToggleBtn"
 import { Ilogo } from '../svgs/svgs';
 import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
-
-
-const navigationLinks = [
-  {
-    title: "Home",
-    path: "/",
-    varient: "ghost"
-  },
-  {
-    title: "Portfolio",
-    path: "/portfolio",
-    varient: "ghost"
-  },
-  {
-    title: "Contact Us",
-    path: "/contact",
-    varient: "ghost"
-  },
-  {
-    title: "Hire Now",
-    path: "/hire-now",
-    varient: ""
-  },
-]
+import { navigationLinks } from '@/lib/const';
 
 export default function Header() {
   const path = usePathname();

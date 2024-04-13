@@ -1,4 +1,21 @@
 
+export const navigationLinks = [
+  {
+    title: "Home",
+    path: "/",
+    varient: "ghost"
+  },
+  {
+    title: "Portfolio",
+    path: "/portfolio",
+    varient: "ghost"
+  },
+  {
+    title: "Contact / Hire",
+    path: "/contact",
+    varient: ""
+  }
+]
 
 export const projectsData = [
   {
@@ -20,21 +37,21 @@ export const projectsData = [
     desc: "Indulge your palate with a culinary journey through our restaurant website, showcasing tantalizing dishes and a delightful dining experience.",
     link: "https://wds-foodie.vercel.app",
     concept: ["NextJS"],
-    imageUrl: "/images/projects/foodie.png",
+    imageUrl: "/images/projects/foodie.jpg",
   },
   {
     title: "Zenflex",
     desc: "Elevate your fitness journey with our dynamic gym website, empowering you with cutting-edge resources and personalized training options.",
     link: "https://wds-zenflex.vercel.app",
     concept: ["NextJS", "API"],
-    imageUrl: "/images/projects/zenflex.png",
+    imageUrl: "/images/projects/zenflex.jpg",
   },
   {
     title: "Cofeco",
     desc: "Immerse yourself in the aroma of freshly brewed coffee with our captivating coffee shop website, promising a cozy retreat for coffee enthusiasts.",
     link: "https://wds-cofeco.vercel.app",
     concept: ["NextJS", "Shadcn-UI"],
-    imageUrl: "/images/projects/cofeco.png",
+    imageUrl: "/images/projects/cofeco.jpg",
   },
   {
     title: "Blog",
@@ -65,3 +82,21 @@ export const projectsData = [
     imageUrl: "/images/projects/atendease.png",
   },
 ];
+
+export const budgetData = [
+  {
+    id: "bd1",
+    title: "Less Than $50",
+    value: "lessthan50",
+  },
+  {
+    id: "bd2",
+    title: "$50 to $200",
+    value: "50to200",
+  },
+  {
+    id: "bd3",
+    title: "More than $200",
+    value: "morethan200",
+  },
+]

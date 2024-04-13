@@ -1,5 +1,5 @@
 import SparkleText from "../helper/SparkleText";
-import Form from "./Form";
+import FormBox from "./Form";
 
 export default function Contact({ className, title, subTitle }) {
     return (
@@ -8,7 +8,7 @@ export default function Contact({ className, title, subTitle }) {
                 <h2 className="mb-2"><SparkleText text={title || 'Get in Touch'} /></h2>
                 <p className="">{subTitle || 'Reach out to us for any inquiries or assistance'}</p>
             </div>
-            <Form />
+            <FormBox />
         </section>
     )
 }

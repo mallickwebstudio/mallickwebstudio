@@ -97,25 +97,36 @@
   }
 
   .hero-blob {
+    --blur: 100px;
+    --spread: 70px;
     position: absolute;
     left: 70%;
-    top: 8rem;
+    top: 7rem;
     width: 1px;
     height: 1px;
     animation: changeHue 10s infinite;
   }
 
   @keyframes changeHue {
+
     0% {
-      box-shadow: 0 0 200px 100px #211d6a;
+      box-shadow: 0 0 var(--blur) var(--spread) #2e2991;
+    }
+
+    25% {
+      box-shadow: 0 0 var(--blur) var(--spread) #27ac6e;
     }
 
     50% {
-      box-shadow: 0 0 200px 100px #2e27ac;
+      box-shadow: 0 0 var(--blur) var(--spread) #ac278b;
+    }
+
+    75% {
+      box-shadow: 0 0 var(--blur) var(--spread) #ac9f27;
     }
 
     100% {
-      box-shadow: 0 0 200px 100px #211d6a;
+      box-shadow: 0 0 var(--blur) var(--spread) #2e2991;
     }
   }
 }

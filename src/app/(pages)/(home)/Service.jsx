@@ -41,7 +41,7 @@ export default function Service() {
             <h2 className="md:text-center">
                 What <span className=""><SparkleText text="Services" /></span> you get?
             </h2>
-            <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))] justify-center items-center">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 justify-center items-center">
                 {
                     serviceData.map((item, i) => {
                         return <ServiceCard key={i + 1} icon={item.icon} title={item.title} desc={item.desc} />
