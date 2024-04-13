@@ -70,140 +70,135 @@ export default function FormBox() {
     };
 
     return (
-        <>
-            <h1 className="text-center">Render = 1</h1>
-            {/* <MailBody /> */}
+        <Form {...form}>
+            <form
+                className="mt-6 mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
+                onSubmit={handleSubmit(onSubmit)}
+            >
 
-            <Form {...form}>
-                <form
-                    className="mt-6 mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
-                    onSubmit={handleSubmit(onSubmit)}
-                >
+                {/* Full Name */}
+                <FormField
+                    control={form.control}
+                    name="fullname"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="fullname">Full Name</FormLabel>
+                            <FormControl>
+                                <Input
+                                    id="fullname"
+                                    name="fullname"
+                                    type="text"
+                                    {...field}
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
-                    {/* Full Name */}
-                    <FormField
-                        control={form.control}
-                        name="fullname"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="fullname">Full Name</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        id="fullname"
-                                        name="fullname"
-                                        type="text"
-                                        {...field}
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
+                {/* email */}
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="email">Email</FormLabel>
+                            <FormControl>
+                                <Input
+                                    id="email"
+                                    name="email"
+                                    type="text"
+                                    {...field}
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
-                    {/* email */}
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="email">Email</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        type="text"
-                                        {...field}
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
+                {/* is Hiring */}
+                <FormField
+                    control={form.control}
+                    name="isHiring"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
+                            <FormControl>
+                                <Switch
+                                    className="block"
+                                    id="isHiring"
+                                    name="isHiring"
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
-                    {/* is Hiring */}
-                    <FormField
-                        control={form.control}
-                        name="isHiring"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
-                                <FormControl>
-                                    <Switch
-                                        className="block"
-                                        id="isHiring"
-                                        name="isHiring"
-                                        checked={field.value}
-                                        onCheckedChange={field.onChange}
-                                    />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
+                {/* Hireing Package */}
+                {form.watch("isHiring") ? <FormField
+                    control={form.control}
+                    name="budget"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Budget</FormLabel>
+                            <FormControl>
+                                <RadioGroup
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                    className="flex gap-2 flex-wrap"
+                                    value={field.value}
+                                >
+                                    {budgetData.map(item => (
+                                        <FormItem
+                                            key={item.id}>
+                                            <FormLabel
+                                                className={`p-4 space-y-3 block border rounded cursor-pointer font-normal ${item.value === field.value && "border-primary"}`}
+                                                htmlFor={item.value}>
+                                                <FormControl>
+                                                    <RadioGroupItem
+                                                        id={item.value}
+                                                        name={item.value}
+                                                        value={item.value} />
+                                                </FormControl>
+                                                <div className="pointer-events-none cursor-pointer">
+                                                    {item.title}
+                                                </div>
+                                            </FormLabel>
+                                        </FormItem>
+                                    ))}
+                                </RadioGroup>
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                /> : null}
 
-                    {/* Hireing Package */}
-                    {form.watch("isHiring") ? <FormField
-                        control={form.control}
-                        name="budget"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Budget</FormLabel>
-                                <FormControl>
-                                    <RadioGroup
-                                        onValueChange={field.onChange}
-                                        defaultValue={field.value}
-                                        className="flex gap-2 flex-wrap"
-                                        value={field.value}
-                                    >
-                                        {budgetData.map(item => (
-                                            <FormItem
-                                                key={item.id}>
-                                                <FormLabel
-                                                    className={`p-4 space-y-3 block border rounded cursor-pointer font-normal ${item.value === field.value && "border-primary"}`}
-                                                    htmlFor={item.value}>
-                                                    <FormControl>
-                                                        <RadioGroupItem
-                                                            id={item.value}
-                                                            name={item.value}
-                                                            value={item.value} />
-                                                    </FormControl>
-                                                    <div className="pointer-events-none cursor-pointer">
-                                                        {item.title}
-                                                    </div>
-                                                </FormLabel>
-                                            </FormItem>
-                                        ))}
-                                    </RadioGroup>
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    /> : null}
+                {/* email */}
+                <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="message">Message</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    id="message"
+                                    name="message"
+                                    type="text"
+                                    {...field}
+                                    placeholder="Type your message here..."
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
-                    {/* email */}
-                    <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="message">Message</FormLabel>
-                                <FormControl>
-                                    <Textarea
-                                        id="message"
-                                        name="message"
-                                        type="text"
-                                        {...field}
-                                        placeholder="Type your message here..."
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
-
-                    <div className="flex-center">
-                        <Button className="w-fit" variant="secondary" disabled={isSubmitting || btnDisable}>
-                            {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
-                        </Button>
-                    </div>
-                </form>
-            </Form>
-        </>
+                <div className="flex-center">
+                    <Button className="w-fit" variant="secondary" disabled={isSubmitting || btnDisable}>
+                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
+                    </Button>
+                </div>
+            </form>
+        </Form>
     )
 }
