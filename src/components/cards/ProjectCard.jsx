@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
-import { buttonVariants } from "./button";
+import { buttonVariants } from "../ui/button";
+import { ExternalLink, SquareArrowOutUpRight } from 'lucide-react';
 
-export default async function ProjectCard({ title, desc, link, imageUrl, concept }) {
+export default async function ProjectCard({ data: { title, description, link, imageUrl, concept } }) {
     const arr = concept;
     const image = await imageUrl;
     console.log(image)
@@ -17,9 +17,11 @@ export default async function ProjectCard({ title, desc, link, imageUrl, concept
             <div className="p-4">
                 <div className="flex-between">
                     <div className="font-bold text-foreground">{title}</div>
-                    <Link className={buttonVariants({ variant: "link" })} href={link} target="blank">Open</Link>
+                    <Link className={buttonVariants({ variant: "link" })} href={link} target="blank">
+                        Open <ExternalLink className="size-4 ml-2" />
+                    </Link>
                 </div>
-                <div className="text-muted-foreground">{desc}</div>
+                <div className="text-muted-foreground">{description}</div>
             </div>
 
             {/* Learnings */}

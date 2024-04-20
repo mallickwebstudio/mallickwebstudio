@@ -5,12 +5,13 @@ import { ThemeProvider } from '@/components/context/ThemeProvider';
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import { siteConfig } from '@/lib/const';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'webdevsalmann',
-  description: 'Website Developer Salman portfolio',
+  title: siteConfig.siteTitle,
+  description: siteConfig.siteDescription,
 }
 
 export default function RootLayout({ children }) {

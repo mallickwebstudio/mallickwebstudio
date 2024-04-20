@@ -72,7 +72,7 @@ export default function FormBox() {
     return (
         <Form {...form}>
             <form
-                className="mt-6 mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
+                className="mt-block mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
                 onSubmit={handleSubmit(onSubmit)}
             >
 
@@ -134,13 +134,13 @@ export default function FormBox() {
                     )}
                 />
 
-                {/* Hireing Package */}
+                {/* Budget */}
                 {form.watch("isHiring") ? <FormField
                     control={form.control}
                     name="budget"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Budget</FormLabel>
+                            <FormLabel>Budget (in USD)</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -173,7 +173,7 @@ export default function FormBox() {
                     )}
                 /> : null}
 
-                {/* email */}
+                {/* Message */}
                 <FormField
                     control={form.control}
                     name="message"
@@ -193,6 +193,7 @@ export default function FormBox() {
                     )}
                 />
 
+                {/* Submit Button */}
                 <div className="flex-center">
                     <Button className="w-fit" variant="secondary" disabled={isSubmitting || btnDisable}>
                         {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}

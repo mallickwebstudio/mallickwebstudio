@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <footer className="section border-t">
       <Link className="flex-center" href="/">
-        <Ilogo className="w-16 h-16" />
+        <Ilogo className="size-16 w-fit" />
       </Link>
 
-      <div className="mt-2 flex-center flex gap-6">
+      <div className="my-base flex-center flex gap-6">
         <Link href="https://www.instagram.com/webdevsalmann/">
           <Instagram className="w-8 h-8 text-muted-foreground hover:text-primary" />
         </Link>

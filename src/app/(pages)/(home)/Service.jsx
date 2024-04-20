@@ -1,5 +1,5 @@
 import SparkleText from "@/components/helper/SparkleText";
-import ServiceCard from "@/components/ui/ServiceCard";
+import ServiceCard from "@/components/cards/ServiceCard";
 import { Earth, MonitorSmartphone, PencilRuler, Shapes, TrendingUp, Wrench } from "lucide-react";
 
 const serviceData = [
@@ -37,11 +37,11 @@ const serviceData = [
 
 export default function Service() {
     return (
-        <section className="section-padding">
-            <h2 className="md:text-center">
+        <section id="service">
+            <h2>
                 What <span className=""><SparkleText text="Services" /></span> you get?
             </h2>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 justify-center items-center">
+            <div className="mt-block grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center">
                 {
                     serviceData.map((item, i) => {
                         return <ServiceCard key={i + 1} icon={item.icon} title={item.title} desc={item.desc} />

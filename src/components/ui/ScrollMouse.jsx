@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ScrollMouse() {
     return (
         <div className="flex-center">
-            <Link href="/#about" onClick={smoothScroll}>
+            <Link href="/#service" onClick={() => smoothScroll("service")}>
                 <Mouse className="animate-bounce" />
             </Link>
         </div>

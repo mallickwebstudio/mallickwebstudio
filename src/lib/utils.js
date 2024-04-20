@@ -5,8 +5,6 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs))
 }
 
-export function smoothScroll(event) {
-  event.preventDefault();
-  const aboutSection = document.getElementById('about');
-  aboutSection.scrollIntoView({ behavior: 'smooth' });
+export function smoothScroll(section) {
+  document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
 }

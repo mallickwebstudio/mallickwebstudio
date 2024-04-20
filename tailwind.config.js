@@ -17,6 +17,16 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        'xs': '12px',
+        'sm': '16px',
+        'base': '20px',
+        'lg': '24px',
+        'xl': '28px',
+        '2xl': '32px',
+        '3xl': '36px',
+        'block': '48px',
+      },
       transitionDuration: {
         '5000': '5000ms',
       },
