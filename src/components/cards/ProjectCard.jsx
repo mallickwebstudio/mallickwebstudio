@@ -5,7 +5,6 @@ import { ExternalLink, SquareArrowOutUpRight } from 'lucide-react';
 export default async function ProjectCard({ data: { title, description, link, imageUrl, concept } }) {
     const arr = concept;
     const image = await imageUrl;
-    console.log(image)
     return (
         <div className="relative bg-card border rounded-lg hover:-translate-y-2 overflow-hidden transition-all group">
             {/* Image */}

@@ -5,10 +5,10 @@ import SparkleText from "../helper/SparkleText";
 
 export default function PricingCard({ data: { id, title, description, benefits, additionalFeature, price } }) {
     return (
-        <div className={`relative p-4 h-fit border rounded-md overflow-hidden ${id === "advancePricing" ? "border-primary" : ""}`}>
+        <div className={`relative p-4 h-fit border bg-background bg-opacity-5 rounded-md ${id === "advancePricing" ? "border-primary" : ""}`}>
             {/* Recommended */}
             {id === "advancePricing" ? (
-                <div className="-mb-4 w-full flex-center">
+                <div className="absolute -top-sm left-0 right-0 w-full flex-center">
                     <div className="py-1 px-3 bg-primary text-background uppercase tracking-wide font-semibold rounded">Recommended</div>
                 </div>
             ) : null}
@@ -16,17 +16,17 @@ export default function PricingCard({ data: { id, title, description, benefits, 
             {/* Heading */}
             <div className="p-4 pt-8 text-center grid place-items-center">
                 <div className="font-semibold text-3xl">
-                    {id === "advancePricing" ? <SparkleText text={title} /> : title}
+                    {title}
                 </div>
                 <p className="mt-base text-sm">{description}</p>
             </div>
 
             {/* Body */}
-            <div className="p-4 border-t">
+            <div className="pb-4 border-t">
                 <ul className="mx-auto w-fit">
                     {benefits.map(item => (
-                        <li className="flex gap-4 items-center leading-9" key={item.id}>
-                            <CheckCheck className="size-5 shrink-0 text-primary" />
+                        <li className="mt-4 flex gap-4" key={item.id}>
+                            <CheckCheck className="mt-[2px] size-5 shrink-0 text-primary" />
                             <div className="">{item.feature}</div>
                         </li>
                     ))}

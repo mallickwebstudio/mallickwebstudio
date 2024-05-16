@@ -1,14 +1,21 @@
+import Image from "next/image";
 import SparkleText from "../helper/SparkleText";
 import FormBox from "./Form";
+import { Imail } from "../svgs/svgs";
 
-export default function Contact({ className, title, subTitle }) {
+export default function Contact({ className, heading, subTitle }) {
     return (
         <section className={className}>
-            <div className="mx-auto text-center w-11/12 md:w-1/2">
-                <h2 className="mb-2"><SparkleText text={title || 'Get in Touch'} /></h2>
-                <p>{subTitle || 'Reach out to us for any inquiries or assistance'}</p>
+            <div className="section-wrapper grid md:grid-cols-2 gap-block">
+                <div>
+                    <h2 className="mb-2 text-left">{heading ? heading : <SparkleText text="Get In Touch" />}</h2>
+                    <p className="">{subTitle || 'Reach out to us for any inquiries or assistance'}</p>
+                    <div className="hidden md:block">
+                        <Imail className="w-full text-muted-foreground" />
+                    </div>
+                </div>
+                <FormBox />
             </div>
-            <FormBox />
         </section>
     )
 }

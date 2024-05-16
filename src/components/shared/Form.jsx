@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Loader2 } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -72,7 +72,7 @@ export default function FormBox() {
     return (
         <Form {...form}>
             <form
-                className="mt-block mx-auto p-4 w-11/12 md:w-1/2 space-y-6 rounded-md"
+                className="mx-auto px-4 w-full space-y-6 rounded-md"
                 onSubmit={handleSubmit(onSubmit)}
             >
 
@@ -195,8 +195,9 @@ export default function FormBox() {
 
                 {/* Submit Button */}
                 <div className="flex-center">
-                    <Button className="w-fit" variant="secondary" disabled={isSubmitting || btnDisable}>
-                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
+                    <Button className="w-fit" disabled={isSubmitting || btnDisable}>
+                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send {isSubmitting && "ing"}
+                        {!isSubmitting &&  <Send className="ml-2 size-3 inline" />}
                     </Button>
                 </div>
             </form>

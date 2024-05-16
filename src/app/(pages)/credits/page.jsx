@@ -1,21 +1,30 @@
 import SparkleText from "@/components/helper/SparkleText";
+import Hero from "@/components/shared/Hero";
+import { creditMd } from "@/lib/metaData";
+import Link from "next/link";
+
+export const metadata = {
+  title: creditMd.title,
+  description: creditMd.description,
+}
 
 export default function Page() {
   return (
-    <section className="py-8 px-4 sm:py-12 sm:px-8 md:py-16 md:px-12 lg:py-20 lg:px-16">
+    <>
+      <Hero heading={<SparkleText text="Credits" />} />
+      <section>
+        <div className="section-wrapper">
 
-      <h1 className="mb-8 text-center"><SparkleText text="Credits" /></h1>
-      
-      <div className="mx-auto w-full md:w-1/2">
-        <h2 className="mb-6">Images</h2>
-        <p className="flex gap-4 w-full ">
-          <span className="block font-medium">Hero Image: </span>
-          <a className="capitalize set-text-link" href="https://www.manypixels.co/gallery" target="_blank">
-            manypixels
-            </a>
-        </p>
-      </div>
-
-    </section>
+          <div className="mx-auto w-full md:w-1/2">
+            <h2 className="mb-6">Images</h2>
+            <p className="flex gap-4 w-full ">
+              <span className="block font-medium">Illustrations: </span>
+              <Link className="text-link" href="https://www.manypixels.co/gallery" target="_blank">Manypixels</Link>
+              <Link className="text-link" href="https://themeisle.com/illustrations/" target="_blank">Themeisle</Link>
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

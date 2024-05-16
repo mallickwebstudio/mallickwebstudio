@@ -1,13 +1,11 @@
 
 // ==============================================
 // Common
-// ==============================================
-export const siteConfig = {
-  siteTitle: "webdevsalmann - Freelance Fullstack Website Developer (Based in India)",
-  siteName: "webdevsalmann",
-  siteDescription: "I specialize in creating websites for startups and local businesses to help them thrive on their business journey.",
-}
 
+import { BadgeDollarSign, ChevronsUp, MonitorSmartphone, PencilRuler, ScanSearch, Sparkles, User, Wrench, HandCoins, GaugeCircle, BugOff, FilePlus, ArrowUpAZ, Layers2, Badge, Image, Fullscreen, CircleSlash, RefreshCw, AlignVerticalSpaceAround, File, } from "lucide-react";
+import Link from "next/link";
+
+// ==============================================
 export const navigationLinks = [
   {
     title: "Home",
@@ -15,8 +13,13 @@ export const navigationLinks = [
     varient: "ghost"
   },
   {
-    title: "About Me",
+    title: "About",
     path: "/about",
+    varient: "ghost"
+  },
+  {
+    title: "Services",
+    path: "/services",
     varient: "ghost"
   },
   {
@@ -117,27 +120,56 @@ export const budgetData = [
 // ==============================================
 // Home Page
 // ==============================================
+export const services = [
+  {
+    icon: <PencilRuler className="size-8 group-hover:text-primary" />,
+    title: "Website Design & Development",
+    description: "Jumpstart and establish your brand with your first website or get your existing website redesigned/updated.",
+    link: "/services/website-design-development"
+  },
+  {
+    icon: <Wrench className="size-8 group-hover:text-primary" />,
+    title: "Website Updates",
+    description: "Anything from Website Updates, Bug Fixes, Content changes, or additions of any kind.",
+    link: "/services/website-updates"
+  },
+  {
+    icon: <ChevronsUp className="size-8 group-hover:text-primary" />,
+    title: "Speed Optimization",
+    description: "Get your website loading faster. A slow site can easily loose visitors and customers.",
+    link: "/services/speed-optimization"
+  },
+];
 
 export const faqs = [
   {
     id: "faq1",
-    question: "How much will my project cost?",
-    answers: "It depends on the project and your requirements. Do you need a landing page developed for an upcoming marketing campaign or a fully featured, multi-page website that is integrated with a headless CMS? To find out exactly how much your project will cost please contact me for a quote."
+    question: "Can we negotiate price?",
+    answerJSX: (
+      <div>
+        It depends on the project. If your project deviates from our standard pricing system, then &quot;Yes&quot;, we can. To find out exactly how much your project will cost please <Link className="text-primary hover:text-primary/90 hover:underline" href="/contact"> contact me</Link> for a quote.
+      </div>
+    )
   },
   {
     id: "faq2",
     question: "What is your hourly/day rate?",
-    answers: "My day rate is $40 (USD) or $5 per hour."
+    answer: "My day rate is $20 - $30 (USD) and $5 - $15 (USD) per hour depending on the complexity and scope of the project.."
   },
   {
     id: "faq3",
     question: "How will we communicate during our project?",
-    answers: "I typically prefer to communicate asynchronously during projects using email and Slack for day-to-day conversations/meetings and for project management I like to use Asana, Trello or Notion (or whichever project management tool you prefer if part of an agency or larger corporation)."
+    answer: "I typically prefer to communicate asynchronously during projects using email and Slack for day-to-day conversations/meetings and for project management I like to use Asana or Notion (or whichever project management tool you prefer if part of an agency or larger corporation)."
   },
   {
     id: "faq4",
     question: "Will you collaborate with other freelancers?",
-    answers: "I am more than happy to work alongside designers, copywriters, marketers, graphic designers or any other kind of freelancer you have working on your project. To learn how I like to communicate during projects, please read the question above."
+    answer: "I am more than happy to work alongside designers, copywriters, marketers, graphic designers or any other kind of freelancer you have working on your project. To learn how I like to communicate during projects, please read the question above."
+  },
+  {
+    id: "faq5",
+    question: "Will you work for agencies?",
+    answer: "If you run an agency that needs help with an upcoming project I would love to know more. Please note that I am only interested in projects that are using React, Next.js and Sanity. To discuss further please email webdevsalman7869@gmail.com."
   },
 ]
 
@@ -231,11 +263,11 @@ export const pricing = [
       },
       {
         id: "swb7",
-        feature: "Upto 5 pages",
+        feature: "Upto 4 pages + essential pages",
       },
     ],
     additionalFeature: "Plus $30/per Extra Website Page",
-    price: 150
+    price: 149
   },
   {
     id: "advancePricing",
@@ -244,23 +276,15 @@ export const pricing = [
     benefits: [
       {
         id: "awb1",
-        feature: "Beautifully Designed Website",
+        feature: "Every thing in basic +",
       },
       {
         id: "awb2",
         feature: "Dynamic Website",
       },
       {
-        id: "awb3",
-        feature: "Great User Experience",
-      },
-      {
         id: "awb4",
         feature: "Easy to Edit & Manage Website",
-      },
-      {
-        id: "awb5",
-        feature: "All Device Accessible",
       },
       {
         id: "awb6",
@@ -272,11 +296,11 @@ export const pricing = [
       },
       {
         id: "awb8",
-        feature: "Upto 5 pages",
+        feature: "Upto 5 pages + essential pages",
       },
     ],
     additionalFeature: "Plus $30/per Extra Website Page",
-    price: 300
+    price: 259
   }
 ]
 
@@ -306,22 +330,22 @@ export const porjectPhases = [
   },
   {
     phase: 3,
-    title: "Design",
-    description: "Crafting wireframes, visual aesthetics, and user experience elements to align with the project's goals and user needs.",
-    includes: [
-      "Wireframe Models",
-      "Visual Style",
-      "Usability, UI, UX"
-    ]
-  },
-  {
-    phase: 4,
     title: "Content",
     description: "Developing compelling content, including copywriting and multimedia assets, while optimizing for search engines.",
     includes: [
       "Copywritting",
       "Photos & Videos",
       "Search Enging Optimisation (SEO)"
+    ]
+  },
+  {
+    phase: 4,
+    title: "Design",
+    description: "Crafting wireframes, visual aesthetics, and user experience elements to align with the project's goals and user needs.",
+    includes: [
+      "Wireframe Models",
+      "Visual Style",
+      "Usability, UI, UX"
     ]
   },
   {
@@ -359,3 +383,110 @@ export const porjectPhases = [
 // ==============================================
 // Portfolio Page
 // ==============================================
+
+// ==============================================
+// Service Page
+// ==============================================
+//Website Desing & Development
+export const WDDSIncludes = [
+  {
+    icon: <User className="size-8 group-hover:text-primary" />,
+    title: "User-Experience Focused",
+    description: "We design websites that prioritize user experience, ensuring easy navigation to help achieve your business goals.",
+  },
+  {
+    icon: <BadgeDollarSign className="size-8 group-hover:text-primary" />,
+    title: "Conversion Optimized",
+    description: "Our organized CTAs encourage visitors to convert into customers, making your website a powerful business tool.",
+  },
+  {
+    icon: <MonitorSmartphone className="size-8 group-hover:text-primary" />,
+    title: "Mobile Optimized",
+    description: "With over 58% of users viewing websites on their phones, we ensure every page is fully responsive as a standard.",
+  },
+  {
+    icon: <ScanSearch className="size-8 group-hover:text-primary" />,
+    title: "Search Engine Optimized",
+    description: "Our sites follow best SEO practices, including metadata, proper markup, sitemaps, image names, accessibility, and more to enhance your ranking.",
+  },
+  {
+    icon: <Sparkles className="size-8 group-hover:text-primary" />,
+    title: "Beautifully Designed",
+    description: "Your website will be uniquely designed to reflect your brand's style, including custom fonts, icons, colors, and more.",
+  },
+  {
+    icon: <GaugeCircle className="size-8 group-hover:text-primary" />,
+    title: "Speed Optimized",
+    description: "Developed with performance in mind, your site will be optimized for speed, ensuring no loss of customers due to slow loading times.",
+  },
+  {
+    icon: <HandCoins className="size-8 group-hover:text-primary" />,
+    title: "One-Stop-Shop Support",
+    description: "We offer ongoing support, just an email away for any website assistance you need. Quick changes are often free, and we provide affordable rates for larger updates.",
+  },
+]
+export const WUSIncludes = [
+  {
+    icon: <Wrench className="size-8 group-hover:text-primary" />,
+    title: "Re-Designed Overhauls",
+    description: "Transform an outdated website with a fresh, modern redesign.",
+  },
+  {
+    icon: <BugOff className="size-8 group-hover:text-primary" />,
+    title: "Bug Fixes",
+    description: "Resolve any bugs or issues your website may be experiencing.",
+  },
+  {
+    icon: <FilePlus className="size-8 group-hover:text-primary" />,
+    title: "Add New Pages & Posts",
+    description: "Add new posts or custom-designed, responsive pages to your website.",
+  },
+  {
+    icon: <ArrowUpAZ className="size-8 group-hover:text-primary" />,
+    title: "Text & Content Updates",
+    description: "Keep your website current with updated text and images.",
+  },
+  {
+    icon: <Layers2 className="size-8 group-hover:text-primary" />,
+    title: "Maintenance",
+    description: "Perform essential maintenance, including plugin updates, backups, and bug fixes.",
+  },
+  {
+    icon: <Badge className="size-8 group-hover:text-primary" />,
+    title: "Malware Cleanup",
+    description: "Remove malware from your site, eliminating unwanted redirects, ads, and spam pages.",
+  },
+]
+export const SOSIncludes = [
+  {
+    // eslint-disable-next-line jsx-a11y/alt-text
+    icon: <Image className="size-8 group-hover:text-primary" />,
+    title: "Media Compression",
+    description: "Compress media files to save kilobytes and improve load times on your website.",
+  },
+  {
+    icon: <Fullscreen className="size-8 group-hover:text-primary" />,
+    title: "Image Resizing",
+    description: "Optimize image sizes to maintain necessary quality without blurriness, reducing file sizes.",
+  },
+  {
+    icon: <CircleSlash className="size-8 group-hover:text-primary" />,
+    title: "Disable Unnecessary Assets",
+    description: "Remove unnecessary files from your site to reduce load times and enhance speed.",
+  },
+  {
+    icon: <RefreshCw className="size-8 group-hover:text-primary" />,
+    title: "Loading JS Asynchronously",
+    description: "Load JavaScript files simultaneously with other files to avoid delays in loading.",
+  },
+  {
+    icon: <AlignVerticalSpaceAround className="size-8 group-hover:text-primary" />,
+    title: "Minifying CSS & JS",
+    description: "Compress CSS and JavaScript files to reduce their size and improve load speeds.",
+  },
+  {
+    icon: <File className="size-8 group-hover:text-primary" />,
+    title: "Simplifying Pages",
+    description: "Eliminate unnecessary page elements to reduce file weight and speed up your site.",
+  },
+]

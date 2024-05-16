@@ -28,7 +28,7 @@ module.exports = {
         'block': '48px',
       },
       transitionDuration: {
-        '5000': '5000ms',
+        '5000': '7000ms',
       },
       colors: {
         border: "hsl(var(--border))",

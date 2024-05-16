@@ -1,23 +1,30 @@
 import ProjectCard from "@/components/cards/ProjectCard";
-import { buttonVariants } from "@/components/ui/button";
 import { projectsData } from "@/lib/const";
 import SparkleText from "@/components/helper/SparkleText";
-import Link from "next/link";
 import Contact from "@/components/shared/Contact";
+import { portfolioMd } from "@/lib/metaData";
+import Hero from "@/components/shared/Hero";
+
+export const metadata = {
+  title: portfolioMd.title,
+  description: portfolioMd.description,
+}
 
 export default function Page() {
   return (
-    <section className="section-padding">
-      <h1 className="text-center">Showcase <SparkleText text="Projects" /></h1>
-      <div className="my-block grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))]">
-        {
-          projectsData.map((project, index) => (
-            <ProjectCard data={project} key={index + 11} />
-          ))
-        }
-      </div>
+    <>
+      <Hero heading={<sapn>Portfolio <SparkleText text="Projects" /></sapn>} />
+      <section>
+        <div className="section-wrapper">
+          <div className="my-block grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))]">
+            {projectsData.map((project, index) => (
+              <ProjectCard data={project} key={index + 11} />
+            ))}
+          </div>
 
-      <Contact className="pb-0" />
-    </section>
+        </div>
+      </section>
+      <Contact className="bg-section-secondary" heading={<>Have Any <SparkleText text="projects" /> In Mind?</>} />
+    </>
   )
 }

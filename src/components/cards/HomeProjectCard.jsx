@@ -9,10 +9,10 @@ export default function HomeProjectCard({ data: { title, concept, description, l
         <div className="relative rounded overflow-hidden group">
             {/* Image */}
             <Image
-                className="relative aspect-video object-cover object-top grayscale border rounded group-hover:grayscale-0 transition-all"
+                className="relative w-full aspect-video object-cover object-top md:grayscale border rounded group-hover:grayscale-0 transition-all"
                 src={imageUrl}
-                width={800}
-                height={450}
+                width={480}
+                height={270}
                 alt={`${title} website image`}
             />
 
@@ -26,10 +26,6 @@ export default function HomeProjectCard({ data: { title, concept, description, l
                 <div className="mt-xs text-xl font-semibold">{title}</div>
                 <p className="mt-2 leading-5 line-clamp-2">{description}</p>
                 <div className="mt-4 flex gap-4">
-                    {/* <Link className={buttonVariants({ variant: "secondary", size: "sm" })} href={link} target="_blank">
-                        <Github className="mr-2 inline size-4" /> Github
-                    </Link> */}
-
                     <Link className={buttonVariants({ variant: "outline", size: "sm" })} href={link} target="_blank">
                         View Live <ExternalLink className="ml-2 inline size-4" />
                     </Link>

@@ -1,10 +1,18 @@
+import SparkleText from "@/components/helper/SparkleText";
 import Contact from "@/components/shared/Contact";
+import Hero from "@/components/shared/Hero";
+import { contactMd } from "@/lib/metaData";
+
+export const metadata = {
+    title: contactMd.title,
+    description: contactMd.description,
+}
 
 export default function page() {
     return (
-        <Contact
-            title="Get in Touch"
-            subTitle="Feel free to drop me a message anytime."
-        />
+        <>
+            <Hero heading={<><SparkleText text="Contact Me" /></>} />
+            <Contact />
+        </>
     );
 }

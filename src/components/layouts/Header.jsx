@@ -13,31 +13,35 @@ export default function Header() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
-    <header className='container p-0 w-full bg-background'>
-      <nav className="px-[5%] py-2 w-full grid grid-cols-2 justify-center items-center">
+    <header className={`container p-0 w-full bg-background md:border-0 ${isNavbarOpen && "border-b"}`}>
+      <nav className="px-[5%] py-2 w-full h-full grid grid-cols-2 md:grid-cols-7 gap-base justify-center items-center">
 
         <Link className="w-fit flex-center" href="/">
-          <Ilogo className="w-16 h-16" />
+          <Ilogo className="size-16" />
         </Link>
 
 
-        <div className="w-8 h-8 md:hidden justify-self-end flex-center"
+        <div className="size-8 md:hidden justify-self-end flex-center"
           onClick={() => setIsNavbarOpen(!isNavbarOpen)}>
           {isNavbarOpen ? <X /> : <AlignRight />}
         </div>
 
-        <ul className={`link-box relative w-full flex-center justify-center md:justify-end col-span-2 md:col-span-1 flex-col gap-4 justify-self-start  md:justify-self-end md:flex-row md:flex ${isNavbarOpen ? 'flex' : 'hidden'}`}>
-          {
-            navigationLinks.map((item) => (
+        <div className={`col-span-2 md:col-span-5 justify-self-center  ${isNavbarOpen ? 'block' : 'hidden md:block'}`}>
+          <ul className={`relative flex-center flex-col gap-xs md:flex-row md:flex ${isNavbarOpen ? 'flex' : 'hidden'}`}>
+            {navigationLinks.map((item) => (
               <li key={item.title}>
                 <Link className={`${buttonVariants({ variant: item.varient, size: 'sm' })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`} href={item.path}>
                   {item.title}
                 </Link>
               </li>
-            ))
-          }
-          <ThemeToggleBtn />
-        </ul>
+            ))}
+            <li className="md:hidden">
+              <ThemeToggleBtn />
+            </li>
+          </ul>
+        </div>
+
+        <ThemeToggleBtn className="hidden md:block justify-self-end" />
       </nav>
     </header>
   )

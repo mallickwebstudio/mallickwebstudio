@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function TechCard({ img, icon, label }) {
+export default function TechCard({ link, img, icon, label }) {
     return (
-        <div className="relative size-full self-start p-2 max-w-20 flex-center flex-col rounded-md border">
+        <Link className="relative p-2 size-full max-w-20 bg-background hover:bg-muted self-start flex-center flex-col rounded-md border" href={link} target="_blank">
             <div className="relative size-full p-1 flex-center aspect-square">
                 {img ? <Image
                     width={100}
@@ -12,6 +13,6 @@ export default function TechCard({ img, icon, label }) {
                 /> : icon}
             </div>
             <span className='mt-2 relative text-center text-muted-foreground text-xs'>{label}</span>
-        </div>
+        </Link>
     )
 }
