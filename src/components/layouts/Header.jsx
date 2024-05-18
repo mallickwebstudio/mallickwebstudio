@@ -18,6 +18,7 @@ export default function Header() {
 
         <Link className="w-fit flex-center" href="/">
           <Ilogo className="size-16" />
+          <span className='sr-only'>webdevsalmann</span>
         </Link>
 
 

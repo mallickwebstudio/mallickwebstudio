@@ -197,7 +197,7 @@ export default function FormBox() {
                 <div className="flex-center">
                     <Button className="w-fit" disabled={isSubmitting || btnDisable}>
                         {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send {isSubmitting && "ing"}
-                        {!isSubmitting &&  <Send className="ml-2 size-3 inline" />}
+                        {!isSubmitting && <Send className="ml-2 size-3 inline" />}
                     </Button>
                 </div>
             </form>

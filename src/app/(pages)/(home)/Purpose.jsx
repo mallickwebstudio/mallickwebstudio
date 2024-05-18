@@ -7,15 +7,14 @@ import Link from "next/link";
 export default function purpose() {
   return (
     <section className="bg-section-secondary">
-      <div className="section-wrapper grid md:grid-cols-2 gap-block">
+      <div className="relative section-wrapper grid md:grid-cols-2 gap-block">
         {/* Image */}
-        <div className="grid grid-cols-2 gap-base w-full h-fit">
-          {/* <div className="size-[100px] bg-primary"></div> */}
+        <div className="sticky top-block w-full h-fit grid grid-cols-2 gap-base">
           <div className="relative w-full aspect-square overflow-hidden rounded-md">
             <Image
               className="relative w-full aspect-square object-cover object-top rounded"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               src="/images/projects/regalestate.png"
               alt="regalestate website"
             />
@@ -23,8 +22,8 @@ export default function purpose() {
           <div className="relative w-full aspect-square overflow-hidden rounded-md">
             <Image
               className="relative w-full aspect-square object-cover object-top rounded"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               src="/images/projects/bugbuster.png"
               alt="bugbuster website"
             />
@@ -32,8 +31,8 @@ export default function purpose() {
           <div className="relative w-full aspect-square overflow-hidden rounded-md">
             <Image
               className="relative w-full aspect-square object-cover object-top rounded"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               src="/images/projects/cofeco.jpg"
               alt="cofeco website"
             />
@@ -41,8 +40,8 @@ export default function purpose() {
           <div className="relative w-full aspect-square overflow-hidden rounded-md">
             <Image
               className="relative w-full aspect-square object-cover object-top rounded"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               src="/images/projects/foodie.jpg"
               alt="foodie website"
             />

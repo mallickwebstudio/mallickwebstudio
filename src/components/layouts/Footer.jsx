@@ -9,15 +9,18 @@ export default function Footer() {
       <div className="section-wrapper">
         <Link className="flex-center" href="/">
           <Ilogo className="size-16 w-fit" />
+          <span className="sr-only">webdevsalmann</span>
         </Link>
 
         <div className="my-base flex-center flex gap-6">
           <Link href="https://www.instagram.com/webdevsalmann/">
             <Instagram className="w-8 h-8 text-muted-foreground hover:text-primary" />
+            <span className="sr-only">Visit my Instagram</span>
           </Link>
 
           <Link href="https://github.com/webdevsalmann/">
             <Github className="w-8 h-8 text-muted-foreground hover:text-primary" />
+            <span className="sr-only">Visit my Facebook</span>
           </Link>
         </div>
 

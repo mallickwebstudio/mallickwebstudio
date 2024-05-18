@@ -36,6 +36,13 @@ export const navigationLinks = [
 
 export const projectsData = [
   {
+    title: "Nova Cart",
+    description: "Discover sustainable style and connect with us for exclusive offers and updates.",
+    link: "https://wds-novacart.vercel.app",
+    concept: ["NextJS", "Sanity.io", "stripe-payment", "ShadcnUI"],
+    imageUrl: "/images/projects/novacart.png",
+  },
+  {
     title: "Regal Estate",
     description: "Experience the epitome of luxury with our meticulously crafted estate website, offering seamless navigation and stunning visuals.",
     link: "https://wds-regalestate.vercel.app",
@@ -147,7 +154,7 @@ export const faqs = [
     question: "Can we negotiate price?",
     answerJSX: (
       <div>
-        It depends on the project. If your project deviates from our standard pricing system, then &quot;Yes&quot;, we can. To find out exactly how much your project will cost please <Link className="text-primary hover:text-primary/90 hover:underline" href="/contact"> contact me</Link> for a quote.
+        It depends on the project. If your project deviates from our standard pricing system, then &quot;Yes&quot;, we can. To find out exactly how much your project will cost please <Link className="text-link" href="/contact"> contact me</Link> for a quote.
       </div>
     )
   },
