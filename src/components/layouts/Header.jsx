@@ -1,15 +1,14 @@
 "use client"
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { buttonVariants } from "@/components/ui/button"
 import ThemeToggleBtn from "@/components/ui/ThemeToggleBtn"
 import { Ilogo } from '../svgs/svgs';
 import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
 import { navigationLinks } from '@/lib/const';
+import NavigationLinks from './NavigationLinks';
 
 export default function Header() {
-  const path = usePathname();
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
@@ -29,13 +28,7 @@ export default function Header() {
 
         <div className={`col-span-2 md:col-span-5 justify-self-center  ${isNavbarOpen ? 'block' : 'hidden md:block'}`}>
           <ul className={`relative flex-center flex-col gap-xs md:flex-row md:flex ${isNavbarOpen ? 'flex' : 'hidden'}`}>
-            {navigationLinks.map((item) => (
-              <li key={item.title}>
-                <Link className={`${buttonVariants({ variant: item.varient, size: 'sm' })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`} href={item.path}>
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            <NavigationLinks />
             <li className="md:hidden">
               <ThemeToggleBtn />
             </li>

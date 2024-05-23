@@ -1,28 +1,32 @@
 "use client"
 import { useState } from "react";
-import { budgetData } from "@/lib/const";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Loader2, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 
 const FormSchema = z.object({
     fullname: z.string(),
-    email: z.string(),
+    email: z.string().email(),
     isHiring: z.boolean(),
-    budget: z.string(),
-    message: z.string()
-})
+    socialPresence: z.string().optional(),
+    businessDescription: z.string().optional(),
+    interestedService: z.string(),
+    projectBudget: z.string(),
+    problemToSolve: z.string().optional(),
+    successDefinition: z.string().optional(),
+    message: z.string().optional(),
+});
 
 export default function FormBox() {
     const [btnDisable, setBtnDisable] = useState(false);
+
     // REACT HOOK FORM
     const form = useForm({
         resolver: zodResolver(FormSchema),
@@ -30,11 +34,16 @@ export default function FormBox() {
             fullname: "",
             email: "",
             isHiring: false,
-            budget: "not defined",
+            socialPresence: "",
+            businessDescription: "",
+            interestedService: "",
+            projectBudget: "",
+            problemToSolve: "",
+            successDefinition: "",
             message: "",
         },
-    })
-    const { handleSubmit, control, formState: { isSubmitting } } = form;
+    });
+    const { handleSubmit, formState: { isSubmitting } } = form;
 
     //HANDLE SUBMIT
     const onSubmit = async (data) => {
@@ -68,6 +77,8 @@ export default function FormBox() {
             console.error('Error submitting form', error);
         }
     };
+
+    console.log("Form:~ ", { ...form })
 
     return (
         <Form {...form}>
@@ -134,44 +145,133 @@ export default function FormBox() {
                     )}
                 />
 
-                {/* Budget */}
-                {form.watch("isHiring") ? <FormField
-                    control={form.control}
-                    name="budget"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Budget (in USD)</FormLabel>
-                            <FormControl>
-                                <RadioGroup
-                                    onValueChange={field.onChange}
-                                    defaultValue={field.value}
-                                    className="flex gap-2 flex-wrap"
-                                    value={field.value}
-                                >
-                                    {budgetData.map(item => (
-                                        <FormItem
-                                            key={item.id}>
-                                            <FormLabel
-                                                className={`p-4 space-y-3 block border rounded cursor-pointer font-normal ${item.value === field.value && "border-primary"}`}
-                                                htmlFor={item.value}>
-                                                <FormControl>
-                                                    <RadioGroupItem
-                                                        id={item.value}
-                                                        name={item.value}
-                                                        value={item.value} />
-                                                </FormControl>
-                                                <div className="pointer-events-none cursor-pointer">
-                                                    {item.title}
-                                                </div>
-                                            </FormLabel>
-                                        </FormItem>
-                                    ))}
-                                </RadioGroup>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                /> : null}
+                {/* Inquiry Form */}
+                {form.watch("isHiring") ? <div className="p-4 bg-section-secondary rounded">
+                    <div className="mb-base font-semibold text-lg">Inquiry Form</div>
+                    <div className="space-y-6">
+
+                        {/* Social Presence */}
+                        <FormField
+                            control={form.control}
+                            name="socialPresence"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="socialPresence">Website & Social Platforms</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            id="socialPresence"
+                                            name="socialPresence"
+                                            type="text"
+                                            {...field}
+                                            placeholder="example.com, @example"
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* What and How */}
+                        <FormField
+                            control={form.control}
+                            name="businessDescription"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="businessDescription">What does your business do and how did you get here?</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            id="businessDescription"
+                                            name="businessDescription"
+                                            type="text"
+                                            {...field}
+                                            placeholder="we do ... by doing ..."
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Required Service */}
+                        <FormField
+                            control={form.control}
+                            name="interestedService"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="interestedService">Which service are you interested in?</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            id="interestedService"
+                                            name="interestedService"
+                                            type="text"
+                                            {...field}
+                                            placeholder="website development / Upgrade / Optimization / Other"
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Budget */}
+                        <FormField
+                            control={form.control}
+                            name="projectBudget"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="projectBudget">What&apos;s your budget for this project?</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            id="projectBudget"
+                                            name="projectBudget"
+                                            type="text"
+                                            {...field}
+                                            placeholder="(USD) $100 to ..."
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Problem & solution */}
+                        <FormField
+                            control={form.control}
+                            name="problemToSolve"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="problemToSolve">What problems are you hoping to solve by working with us?</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            id="problemToSolve"
+                                            name="problemToSolve"
+                                            type="text"
+                                            {...field}
+                                            placeholder="We are distressed with ... and we are hoping to ..."
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Problem & solution */}
+                        <FormField
+                            control={form.control}
+                            name="successDefinition"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel htmlFor="successDefinition">What does success look like for this project?</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            id="successDefinition"
+                                            name="successDefinition"
+                                            type="text"
+                                            {...field}
+                                            placeholder="I want to see ..."
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                </div> : null}
+
 
                 {/* Message */}
                 <FormField
@@ -196,7 +296,7 @@ export default function FormBox() {
                 {/* Submit Button */}
                 <div className="flex-center">
                     <Button className="w-fit" disabled={isSubmitting || btnDisable}>
-                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send {isSubmitting && "ing"}
+                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
                         {!isSubmitting && <Send className="ml-2 size-3 inline" />}
                     </Button>
                 </div>
