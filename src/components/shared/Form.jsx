@@ -78,8 +78,6 @@ export default function FormBox() {
         }
     };
 
-    console.log("Form:~ ", { ...form })
-
     return (
         <Form {...form}>
             <form

@@ -9,7 +9,7 @@ export default function purpose() {
     <section className="bg-section-secondary">
       <div className="relative section-wrapper grid md:grid-cols-2 gap-block">
         {/* Image */}
-        <div className="sticky top-block w-full h-fit grid grid-cols-2 gap-base">
+        <div className="md:sticky top-block w-full h-fit grid grid-cols-2 gap-base">
           <div className="relative w-full aspect-square overflow-hidden rounded-md">
             <Image
               className="relative w-full aspect-square object-cover object-top rounded"

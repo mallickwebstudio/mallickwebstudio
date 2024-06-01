@@ -4,8 +4,8 @@ import { IExpress, INext, IShadcn } from "@/components/svgs/svgs";
 
 export default function TechStack() {
   return (
-    <section>
-      <div className="section-wrapper bg-section-pattern-2">
+    <section className="bg-section-pattern-2">
+      <div className="section-wrapper">
         <h2 className="mb-2">Go To <SparkleText text="Tech Stack" /></h2>
 
         <div className="mt-block mx-auto w-fit">
