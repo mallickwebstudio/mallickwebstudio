@@ -1,12 +1,10 @@
-import Contact from "@/components/shared/Contact";
-import About from "./About";
+import Contact from "@/components/layouts/contact/Contact";
 import Hero from "./Hero";
 import Projects from "./Projects";
 import Purpose from "./Purpose";
 import Service from "./Service";
 import FAQ from "./FAQs";
 import Pricing from "./Pricing";
-import WhyChooseUs from "./WhyChooseUs";
 
 export default function Home() {
   return (
@@ -17,7 +15,6 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <Projects />
-      {/* Testimonial */}
       <Contact />
     </main>
   );

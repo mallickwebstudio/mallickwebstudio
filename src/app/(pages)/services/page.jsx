@@ -1,6 +1,6 @@
 import { serviceMd } from "@/lib/metaData";
 import Service from "../(home)/Service";
-import Hero from "@/components/shared/Hero";
+import Hero from "@/components/ui/Hero";
 import SparkleText from "@/components/helper/SparkleText";
 
 export const metadata = {

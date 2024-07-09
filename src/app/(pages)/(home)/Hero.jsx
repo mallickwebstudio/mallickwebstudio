@@ -1,49 +1,55 @@
+"use client"
 import { buttonVariants } from "@/components/ui/button";
 import SparkleText from "@/components/helper/SparkleText";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollMouse from "@/components/ui/ScrollMouse";
-import { MDiv } from "@/lib/motion";
+import { motion } from "framer-motion";
+import FadeLeft from "@/components/animaitons/FadeLeft";
+
+const container = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { delayChildren: 0.1, staggerChildren: 0.3, }
+    }
+};
+
+const item = {
+    hidden: { x: -20, y: 20, opacity: 0 },
+    visible: { x: 0, y: 0, opacity: 1 }
+};
+
 
 export default function Hero() {
-
-    const variants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 }
-    }
-
     return (
         <section>
             <div className="section-wrapper">
 
                 <div className="grid gap-8 md:grid-cols-5">
-                    <MDiv
-                        variants={variants}
-                        initial={{ opacity: 0, x: "-20px" }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            delay: 1 * 0.25,
-                            ease: "easeInOut",
-                            duration: 0.5
-                        }}
-                        viewport={{ amount: 0 }}
-                        className="md:col-span-3 flex-center flex-col" >
-                        <div className="text-2xl self-start">I&apos;m Salman Mallick</div>
-                        <h1 className="my-base leading-[55px] self-start">
+                    <motion.div className="md:col-span-3"
+                        variants={container}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.div variants={item} className="text-2xl self-start">
+                            I&apos;m Salman Mallick
+                        </motion.div>
+                        <motion.h1 variants={item} className="my-base leading-[55px] self-start">
                             <span className="clr-p"><SparkleText text="UI/UX" /></span> Designer, <br />
                             <span className="clr-p"><SparkleText text="Full Stack" /></span> Website Developer
-                        </h1>
+                        </motion.h1>
 
-                        <p className="md:w-4/5 self-start">
+                        <motion.p variants={item} className="md:w-4/5 self-start">
                             Specializing in <span className="font-bold"> purpose-driven </span>  websites tailored for small and medium-sized businesses, we are committed to enhancing your <span className="font-bold"> market engagement </span>  and ensuring a positive customer experience.
-                        </p>
+                        </motion.p>
 
-                        <div className="mt-base self-start">
+                        <motion.div variants={item} className="mt-base self-start">
                             <Link className={`${buttonVariants()}`} href="/contact" >Hire Now</Link>
-                        </div>
-                    </MDiv>
+                        </motion.div>
+                    </motion.div>
 
-                    <div className="relative md:col-span-2">
+                    <FadeLeft className="relative md:col-span-2">
                         <div className="hero-blob" />
                         <div className="relative w-full bg-contain flex-center rounded overflow-hidden" >
                             <Image
@@ -55,7 +61,7 @@ export default function Hero() {
                                 priority
                             />
                         </div>
-                    </div>
+                    </FadeLeft>
                 </div>
                 <ScrollMouse />
             </div>

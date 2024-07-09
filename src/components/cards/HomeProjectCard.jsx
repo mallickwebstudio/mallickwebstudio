@@ -20,7 +20,7 @@ export default function HomeProjectCard({ data: { title, concept, description, l
             <div className="my-4">
                 <div className="flex gap-2 flex-wrap">
                     {concept.map((item, i) => (
-                        <Badge variant="secondary" key={item + i}>{item}</Badge>
+                        <Badge className="bg-primary/30" variant="secondary" key={item + i}>{item}</Badge>
                     ))}
                 </div>
                 <div className="mt-xs text-xl font-semibold">{title}</div>

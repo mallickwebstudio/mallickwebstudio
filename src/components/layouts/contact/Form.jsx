@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
+import FadeUp from "@/components/animaitons/FadeUp";
 
 const FormSchema = z.object({
     fullname: z.string(),
@@ -86,62 +87,68 @@ export default function FormBox() {
             >
 
                 {/* Full Name */}
-                <FormField
-                    control={form.control}
-                    name="fullname"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="fullname">Full Name</FormLabel>
-                            <FormControl>
-                                <Input
-                                    id="fullname"
-                                    name="fullname"
-                                    type="text"
-                                    {...field}
-                                    required />
-                            </FormControl>
-                        </FormItem>
-                    )}
-                />
+                <FadeUp>
+                    <FormField
+                        control={form.control}
+                        name="fullname"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="fullname">Full Name</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        id="fullname"
+                                        name="fullname"
+                                        type="text"
+                                        {...field}
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+                </FadeUp>
 
                 {/* email */}
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="email">Email</FormLabel>
-                            <FormControl>
-                                <Input
-                                    id="email"
-                                    name="email"
-                                    type="text"
-                                    {...field}
-                                    required />
-                            </FormControl>
-                        </FormItem>
-                    )}
-                />
+                <FadeUp>
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="email">Email</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        type="text"
+                                        {...field}
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+                </FadeUp>
 
                 {/* is Hiring */}
-                <FormField
-                    control={form.control}
-                    name="isHiring"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
-                            <FormControl>
-                                <Switch
-                                    className="block"
-                                    id="isHiring"
-                                    name="isHiring"
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                />
-                            </FormControl>
-                        </FormItem>
-                    )}
-                />
+                <FadeUp>
+                    <FormField
+                        control={form.control}
+                        name="isHiring"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
+                                <FormControl>
+                                    <Switch
+                                        className="block"
+                                        id="isHiring"
+                                        name="isHiring"
+                                        checked={field.value}
+                                        onCheckedChange={field.onChange}
+                                    />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+                </FadeUp>
 
                 {/* Inquiry Form */}
                 {form.watch("isHiring") ? <div className="p-4 bg-section-secondary rounded">
@@ -272,31 +279,35 @@ export default function FormBox() {
 
 
                 {/* Message */}
-                <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="message">Message</FormLabel>
-                            <FormControl>
-                                <Textarea
-                                    id="message"
-                                    name="message"
-                                    type="text"
-                                    {...field}
-                                    placeholder="Type your message here..."
-                                    required />
-                            </FormControl>
-                        </FormItem>
-                    )}
-                />
+                <FadeUp>
+                    <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel htmlFor="message">Message</FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                        id="message"
+                                        name="message"
+                                        type="text"
+                                        {...field}
+                                        placeholder="Type your message here..."
+                                        required />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
+                </FadeUp>
 
                 {/* Submit Button */}
                 <div className="flex-center">
-                    <Button className="w-fit" disabled={isSubmitting || btnDisable}>
-                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
-                        {!isSubmitting && <Send className="ml-2 size-3 inline" />}
-                    </Button>
+                    <FadeUp>
+                        <Button className="w-fit" disabled={isSubmitting || btnDisable}>
+                            {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
+                            {!isSubmitting && <Send className="ml-2 size-3 inline" />}
+                        </Button>
+                    </FadeUp>
                 </div>
             </form>
         </Form>

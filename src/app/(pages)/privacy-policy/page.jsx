@@ -1,5 +1,5 @@
 import SparkleText from "@/components/helper/SparkleText";
-import Hero from "@/components/shared/Hero";
+import Hero from "@/components/ui/Hero";
 import PrivacyPolicy from "./PrivacyPolicy";
 import { privacyPolicyMd } from "@/lib/metaData";
 

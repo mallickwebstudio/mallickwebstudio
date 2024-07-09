@@ -1,11 +1,9 @@
 "use client"
 import Link from 'next/link';
-import { buttonVariants } from "@/components/ui/button"
 import ThemeToggleBtn from "@/components/ui/ThemeToggleBtn"
-import { Ilogo } from '../svgs/svgs';
+import { Ilogo } from '@/components/ui/svgs';
 import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
-import { navigationLinks } from '@/lib/const';
 import NavigationLinks from './NavigationLinks';
 
 export default function Header() {

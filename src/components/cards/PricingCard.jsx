@@ -2,6 +2,7 @@ import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { CheckCheck } from "lucide-react";
 import SparkleText from "../helper/SparkleText";
+import FadeUp from "../animaitons/FadeUp";
 
 export default function PricingCard({ data: { id, title, description, benefits, additionalFeature, price } }) {
     return (
@@ -15,20 +16,26 @@ export default function PricingCard({ data: { id, title, description, benefits, 
 
             {/* Heading */}
             <div className="p-4 pt-8 text-center grid place-items-center">
-                <div className="font-semibold text-3xl">
-                    {title}
-                </div>
-                <p className="mt-base text-sm">{description}</p>
+                <FadeUp>
+                    <div className="font-semibold text-3xl">
+                        {title}
+                    </div>
+                </FadeUp>
+                <FadeUp>
+                    <p className="mt-base text-sm">{description}</p>
+                </FadeUp>
             </div>
 
             {/* Body */}
             <div className="pb-4 border-t">
                 <ul className="mx-auto w-fit">
                     {benefits.map(item => (
-                        <li className="mt-4 flex gap-4" key={item.id}>
-                            <CheckCheck className="mt-[2px] size-5 shrink-0 text-primary" />
-                            <div className="">{item.feature}</div>
-                        </li>
+                        <FadeUp key={item.id + "PricingCardBenefits"}>
+                            <li className="mt-4 flex gap-4">
+                                <CheckCheck className="mt-[2px] size-5 shrink-0 text-primary" />
+                                <div className="">{item.feature}</div>
+                            </li>
+                        </FadeUp>
                     ))}
                 </ul>
             </div>
@@ -36,13 +43,17 @@ export default function PricingCard({ data: { id, title, description, benefits, 
             {/* Footer */}
             <div className="p-4 border-t grid place-items-center">
                 {/* Additional Features */}
-                <div className="">Additional: {additionalFeature}</div>
+                <FadeUp>
+                    <div className=""><span className="font-bold">Additional:</span> {additionalFeature}</div>
+                </FadeUp>
 
-                <div className="mt-base">
-                    <span className="font-bold text-3xl text-primary">${price}</span> (USD)
-                </div>
+                <FadeUp>
+                    <div className="mt-base">
+                        <span className="font-bold text-3xl text-primary">${price}</span> (USD)
+                    </div>
+                </FadeUp>
 
-                <Link className={`${buttonVariants()} mt-base`} href="/contact">Get This Website</Link>
+                <Link className={`${buttonVariants()} mt-base hover:scale-105 transition-all`} href="/contact">Get This Website</Link>
             </div>
         </div>
     )

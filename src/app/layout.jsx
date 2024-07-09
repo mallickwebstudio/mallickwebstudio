@@ -1,12 +1,11 @@
 import { Rubik } from 'next/font/google'
+import Header from '@/components/layouts/navbar/Header';
+import Footer from '@/components/layouts/footer/Footer';
+import Providers from '@/components/providers/providers';
+import { baseUrl } from '@/lib/config';
+import { siteMd } from '@/lib/metaData';
 import './globals.css'
 import './helper.css'
-import { ThemeProvider } from '@/components/context/ThemeProvider';
-import Header from '@/components/layouts/Header';
-import Footer from '@/components/layouts/Footer';
-import { Toaster } from '@/components/ui/toaster';
-import { siteMd } from '@/lib/metaData';
-import { baseUrl } from '@/lib/config';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
@@ -26,15 +25,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={rubik.className} suppressHydrationWarning="true" suppressContentEditableWarning="true">
-        <ThemeProvider attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
+        <Providers>
           <Header />
           {children}
           <Footer />
-          <Toaster />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html >
   )

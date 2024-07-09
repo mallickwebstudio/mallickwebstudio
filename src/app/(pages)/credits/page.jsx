@@ -1,5 +1,5 @@
 import SparkleText from "@/components/helper/SparkleText";
-import Hero from "@/components/shared/Hero";
+import Hero from "@/components/ui/Hero";
 import { creditMd } from "@/lib/metaData";
 import Link from "next/link";
 

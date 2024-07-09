@@ -161,12 +161,12 @@ export const faqs = [
   {
     id: "faq2",
     question: "What is your hourly/day rate?",
-    answer: "My day rate is $20 - $30 (USD) and $5 - $15 (USD) per hour depending on the complexity and scope of the project.."
+    answer: "My day rate is $30 - $50 (USD) and $5 - $15 (USD) per hour depending on the complexity and scope of the project.."
   },
   {
     id: "faq3",
     question: "How will we communicate during our project?",
-    answer: "I typically prefer to communicate asynchronously during projects using email and Slack for day-to-day conversations/meetings and for project management I like to use Asana or Notion (or whichever project management tool you prefer if part of an agency or larger corporation)."
+    answer: "I typically prefer to communicate asynchronously during projects using email and Slack for day-to-day conversations/meetings and for project management I like to use Notion (or whichever project management tool you prefer if part of an agency or larger corporation)."
   },
   {
     id: "faq4",
@@ -241,7 +241,7 @@ export const pricingFeatures = [
 export const pricing = [
   {
     id: "standardPricing",
-    title: "Standard Website",
+    title: "Essential Establishment",
     description: "A website with limited design customization and basic features.",
     benefits: [
       {
@@ -273,12 +273,12 @@ export const pricing = [
         feature: "Upto 4 pages + essential pages",
       },
     ],
-    additionalFeature: "Plus $30/per Extra Website Page",
+    additionalFeature: "+$30/per Extra Website Page",
     price: 149
   },
   {
     id: "advancePricing",
-    title: "Advanced Website",
+    title: "Premium Launch",
     description: "A website with a lot of design customization with more advanced features.",
     benefits: [
       {
@@ -306,7 +306,7 @@ export const pricing = [
         feature: "Upto 5 pages + essential pages",
       },
     ],
-    additionalFeature: "Plus $30/per Extra Website Page",
+    additionalFeature: "+$30/per Extra Website Page",
     price: 259
   }
 ]

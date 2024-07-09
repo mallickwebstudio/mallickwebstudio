@@ -2,9 +2,9 @@
 SPARKLE TEXT START
 =========================================== */
 :root {
-    --blue: #3b82f6;
-    --indigo: #6366f1;
-    --violet: #8b5cf6;
+    --blue: #a3e635;
+    --indigo: #fde047;
+    --violet: #84cc16;
 }
 
 @keyframes background-pan {

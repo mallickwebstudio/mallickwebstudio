@@ -1,7 +1,7 @@
 import SparkleText from "@/components/helper/SparkleText";
 import Includes from "./Includes";
-import Hero from "@/components/shared/Hero";
-import Contact from "@/components/shared/Contact";
+import Hero from "@/components/ui/Hero";
+import Contact from "@/components/layouts/contact/Contact";
 import { WUSMd } from "@/lib/metaData";
 
 export const metadata = {

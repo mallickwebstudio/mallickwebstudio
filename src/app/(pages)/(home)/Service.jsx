@@ -1,6 +1,11 @@
+"use client"
 import SparkleText from "@/components/helper/SparkleText";
 import ServiceCard from "@/components/cards/ServiceCard";
 import { services } from "@/lib/const";
+import FadeUp from "@/components/animaitons/FadeUp";
+import FadeLeft from "@/components/animaitons/FadeLeft";
+import FadeRight from "@/components/animaitons/FadeRight";
+import { motion } from "framer-motion";
 
 // const serviceData = [
 //     {
@@ -39,11 +44,16 @@ export default function Service() {
     return (
         <section id="service">
             <div className="section-wrapper">
-
-                <h2>What <span className=""><SparkleText text="Services" /></span> you get</h2>
+                <FadeUp>
+                    <h2>What <span className=""><SparkleText text="Services" /></span> you get</h2>
+                </FadeUp>
                 <div className="mt-block grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((item, i) => {
-                        return <ServiceCard key={i + 1} data={item} />
+                        return (
+                            <FadeUp key={i + "HomeServiceCard"} >
+                                <ServiceCard data={item} />
+                            </FadeUp>
+                        )
                     })}
                 </div>
             </div>

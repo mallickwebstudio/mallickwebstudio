@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 const SparkleText = ({ text }) => {
     const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const animate = (star) => {
         star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
         star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
@@ -70,7 +71,7 @@ const SparkleText = ({ text }) => {
         magic.removeEventListener("mouseenter", onMouseEnter);
         magic.removeEventListener("mouseleave", onMouseLeave);
       };
-    }, []);
+    }, [animate]);
 
     return (
         <span className='sparkle-text' id='sparkle-text'>

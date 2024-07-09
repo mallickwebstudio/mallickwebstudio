@@ -1,11 +1,12 @@
 import ServiceIncludeCard from "@/components/cards/ServiceIncludeCard"
+import SparkleText from "@/components/helper/SparkleText"
 import { WDDSIncludes} from "@/lib/const"
 
 export default function Includes() {
     return (
         <section>
             <div className="section-wrapper">
-                <h2>Websites built & designed for success</h2>
+            <h2>Websites <SparkleText text="built"/> & <SparkleText text="designed" /> for <SparkleText text="success"/></h2>
 
                 <div className="mt-block grid sm:grid-cols-2 md:grid-cols-3 gap-base">
                     {WDDSIncludes.map((item, i) => {

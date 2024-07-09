@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ilogo } from "../svgs/svgs";
+import { Ilogo } from "@/components/ui/svgs";
 import { Github, Instagram } from "lucide-react";
 
 export default function Footer() {
