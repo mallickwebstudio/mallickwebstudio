@@ -180,69 +180,11 @@ export const faqs = [
   },
 ]
 
-export const pricingFeatures = [
-  {
-    id: "pf1",
-    category: "Design",
-    features: [
-      "Professional Website Design",
-      "Mobile/Desktop Responsive Design",
-      "Multiple Page Design Concept",
-      "Graphic Design Upload (Provided by Client)",
-      "Home Page Sections (Hero, Featured Products, About Us, Services Showcase, Testimonials, Call-to-Action, Contact Form/Information, Footer, as per client requirement)",
-    ]
-  },
-  {
-    id: "pf2",
-    category: "Functionality",
-    features: [
-      "Fully Functional Frontend / Backend",
-      "Smooth Integration of Third-Party Services",
-      "Contact Form for Easy Communication",
-      "Enquiry Form Submission for Lead Generation",
-      "Blog for Thought Leadership",
-      "SSL Implementation for Secure Browsing",
-      "CMS (Content Management System) for Easy Content Updates",
-      "Manage Page/Image/Content Flexibility",
-    ]
-  },
-  {
-    id: "pf3",
-    category: "Performance",
-    features: [
-      "Fast Loading Speed",
-      "Server Setup for Reliable Hosting",
-      "DNS Management for Seamless Domain Control",
-      "SEO Tool Implementation for Better Visibility",
-      "Full Google Admin Configuration for Enhanced Performance",
-      "Development Revisions for Continuous Improvement",
-    ]
-  },
-  {
-    id: "pf4",
-    category: "User Experience",
-    features: [
-      "YouTube Video Embedding (Provided by client)",
-      "Social Media Link Integration for Enhanced Reach",
-      "1 Hour Training Post Delivery for Self-Management",
-      "Testimonials for Building Credibility",
-    ]
-  },
-  {
-    id: "pf4",
-    category: "Content",
-    features: [
-      "Content Upload Service for Quick Start",
-      "Pages - 3-4 for Structured Information Flow",
-    ]
-  }
-];
-
 export const pricing = [
   {
     id: "standardPricing",
     title: "Essential Establishment",
-    description: "A website with limited design customization and basic features.",
+    description: "A website with beautifully design customization and basic features.",
     benefits: [
       {
         id: "swb1",

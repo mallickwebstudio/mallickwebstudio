@@ -1,6 +1,6 @@
 import ServiceIncludeCard from "@/components/cards/ServiceIncludeCard"
 import SparkleText from "@/components/helper/SparkleText"
-import { SOSIncludes } from "@/lib/const"
+import { SOSIncludes } from "@/lib/datas/const"
 
 export default function Includes() {
     return (

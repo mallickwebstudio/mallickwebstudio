@@ -1,12 +1,9 @@
-import { serviceMd } from "@/lib/metaData";
 import Service from "../(home)/Service";
 import Hero from "@/components/ui/Hero";
 import SparkleText from "@/components/helper/SparkleText";
+import { serviceMd } from "@/lib/datas/metaDatas";
 
-export const metadata = {
-  title: serviceMd.title,
-  description: serviceMd.description,
-}
+export const metadata = serviceMd; 
 
 export default function page() {
   return (

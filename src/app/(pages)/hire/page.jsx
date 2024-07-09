@@ -2,12 +2,9 @@ import { buttonVariants } from "@/components/ui/button";
 import SparkleText from "@/components/helper/SparkleText";
 import Link from "next/link";
 import HireCard from "@/components/cards/HireCard";
-import { hireMd } from "@/lib/metaData";
+import { hireMd } from "@/lib/datas/metaDatas";
 
-export const metadata = {
-    title: hireMd.title,
-    description: hireMd.description,
-}
+export const metadata = hireMd;
 
 export default function page() {
     return (

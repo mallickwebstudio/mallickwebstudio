@@ -2,7 +2,7 @@
 import SparkleText from "@/components/helper/SparkleText";
 import HomeProjectCard from "@/components/cards/HomeProjectCard";
 import Link from "next/link";
-import { projectsData } from "@/lib/const";
+import { projectsData } from "@/lib/datas/const";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FadeUp from "@/components/animaitons/FadeUp";

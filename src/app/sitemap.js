@@ -1,4 +1,6 @@
-import { baseUrl } from "@/lib/config";
+import { siteConfig } from "@/lib/datas/metaDatas";
+
+const baseUrl = siteConfig.baseUrl
 
 export default function sitemap() {
     return [

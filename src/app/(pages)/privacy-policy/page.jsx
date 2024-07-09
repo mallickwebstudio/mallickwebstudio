@@ -1,12 +1,9 @@
 import SparkleText from "@/components/helper/SparkleText";
 import Hero from "@/components/ui/Hero";
 import PrivacyPolicy from "./PrivacyPolicy";
-import { privacyPolicyMd } from "@/lib/metaData";
+import { privacyPolicyMd } from "@/lib/datas/metaDatas";
 
-export const metadata = {
-  title: privacyPolicyMd.title,
-  description: privacyPolicyMd.description,
-}
+export const metadata = privacyPolicyMd;
 
 export default function page() {
   return (

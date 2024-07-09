@@ -1,6 +1,6 @@
 import ServiceIncludeCard from "@/components/cards/ServiceIncludeCard"
 import SparkleText from "@/components/helper/SparkleText"
-import { WDDSIncludes} from "@/lib/const"
+import { WDDSIncludes} from "@/lib/datas/const"
 
 export default function Includes() {
     return (

@@ -1,7 +1,7 @@
 "use client"
 import SparkleText from "@/components/helper/SparkleText";
 import ServiceCard from "@/components/cards/ServiceCard";
-import { services } from "@/lib/const";
+import { services } from "@/lib/datas/const";
 import FadeUp from "@/components/animaitons/FadeUp";
 import FadeLeft from "@/components/animaitons/FadeLeft";
 import FadeRight from "@/components/animaitons/FadeRight";

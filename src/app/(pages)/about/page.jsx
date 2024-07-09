@@ -1,15 +1,12 @@
-import { aboutMd } from "@/lib/metaData";
 import HowWeWork from "./HowWeWork";
 import Mission from "./Mission";
 import Hero from "@/components/ui/Hero";
 import SparkleText from "@/components/helper/SparkleText";
 import Contact from "@/components/layouts/contact/Contact";
 import TechStack from "./TechStack";
+import { aboutMd } from "@/lib/datas/metaDatas";
 
-export const metadata = {
-  title: aboutMd.title,
-  description: aboutMd.description,
-}
+export const metadata = aboutMd;
 
 export default function page() {
   return (

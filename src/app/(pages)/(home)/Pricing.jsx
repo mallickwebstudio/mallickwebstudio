@@ -1,7 +1,7 @@
 import FadeUp from "@/components/animaitons/FadeUp";
 import PricingCard from "@/components/cards/PricingCard";
 import SparkleText from "@/components/helper/SparkleText";
-import { pricing } from "@/lib/const";
+import { pricing } from "@/lib/datas/const";
 
 export default function Pricing() {
   return (

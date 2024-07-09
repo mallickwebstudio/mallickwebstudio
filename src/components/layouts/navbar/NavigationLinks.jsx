@@ -1,4 +1,4 @@
-import { navigationLinks } from "@/lib/const";
+import { navigationLinks } from "@/lib/datas/const";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { usePathname } from 'next/navigation';

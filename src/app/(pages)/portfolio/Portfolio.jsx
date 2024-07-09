@@ -1,7 +1,7 @@
 "use client"
 import FadeUp from '@/components/animaitons/FadeUp';
 import ProjectCard from '@/components/cards/ProjectCard'
-import { projectsData } from '@/lib/const';
+import { projectsData } from '@/lib/datas/const';
 import { motion } from 'framer-motion';
 
 // Parent animation configuration

@@ -1,6 +1,6 @@
 import ServiceIncludeCard from "@/components/cards/ServiceIncludeCard"
 import SparkleText from "@/components/helper/SparkleText"
-import { WUSIncludes } from "@/lib/const"
+import { WUSIncludes } from "@/lib/datas/const"
 
 export default function Includes() {
     return (

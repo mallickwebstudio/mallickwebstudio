@@ -1,12 +1,9 @@
 import SparkleText from "@/components/helper/SparkleText";
 import Hero from "@/components/ui/Hero";
-import { creditMd } from "@/lib/metaData";
+import { creditMd } from "@/lib/datas/metaDatas";
 import Link from "next/link";
 
-export const metadata = {
-  title: creditMd.title,
-  description: creditMd.description,
-}
+export const metadata = creditMd;
 
 export default function Page() {
   return (

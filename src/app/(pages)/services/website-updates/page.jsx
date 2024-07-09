@@ -2,12 +2,9 @@ import SparkleText from "@/components/helper/SparkleText";
 import Includes from "./Includes";
 import Hero from "@/components/ui/Hero";
 import Contact from "@/components/layouts/contact/Contact";
-import { WUSMd } from "@/lib/metaData";
+import { WUSMd } from "@/lib/datas/metaDatas";
 
-export const metadata = {
-  title: WUSMd.title,
-  description: WUSMd.description,
-}
+export const metadata = WUSMd
 
 export default function page() {
   return (

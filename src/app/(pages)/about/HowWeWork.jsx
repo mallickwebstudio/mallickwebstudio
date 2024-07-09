@@ -2,7 +2,7 @@ import FadeLeft from "@/components/animaitons/FadeLeft";
 import FadeRight from "@/components/animaitons/FadeRight";
 import FadeUp from "@/components/animaitons/FadeUp";
 import SparkleText from "@/components/helper/SparkleText";
-import { porjectPhases } from "@/lib/const";
+import { porjectPhases } from "@/lib/datas/const";
 import { CheckCheck, Hash } from "lucide-react";
 
 export default function HowWeWork() {

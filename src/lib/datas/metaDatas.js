@@ -1,10 +1,69 @@
+
+export const siteConfig = {
+    name: "webdevsalmann",
+    title: "WebDevSalmann - Fullstack Development Services",
+    description: "Your trusted partner for building powerful and scalable fullstack websites with Next.js.",
+    url: "https://webdevsalmann.com",
+    baseUrl: "https://webdevsalmann.com",
+    ogImage: "https://site/og.jpg",
+    links: {
+        twitter: "https://twitter.com/webdevsalmann",
+        instagram: "https://instagram.com/webdevsalmann",
+    },
+    owner: "Salman Malllick"
+}
+
 // ===================================================
 // // Main Pages
 // ===================================================
 export const siteMd = {
-    title: "WebDevSalmann - Fullstack Development Services",
-    name: "WebDevSalmann",
-    description: "Your trusted partner for building powerful and scalable fullstack websites with Next.js.",
+    title: {
+        default: siteConfig.name,
+        template: `%s - ${siteConfig.name}`,
+    },
+    metadataBase: new URL(siteConfig.url),
+    description: siteConfig.description,
+    keywords: [
+        "Website Developer",
+        "Website Designer",
+        "Website SEO",
+        "Website Upgrade",
+    ],
+    authors: [
+        {
+            name: siteConfig.owner,
+            url: siteConfig.url,
+        },
+    ],
+    creator: "name",
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: siteConfig.url,
+        title: siteConfig.name,
+        description: siteConfig.description,
+        siteName: siteConfig.name,
+        images: [
+            {
+                url: siteConfig.ogImage,
+                width: 1200,
+                height: 630,
+                alt: siteConfig.name,
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: siteConfig.name,
+        description: siteConfig.description,
+        images: [siteConfig.ogImage],
+        creator: "@webdevsalmann",
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon-16x16.png",
+        apple: "/apple-touch-icon.png",
+    },
 }
 
 export const aboutMd = {

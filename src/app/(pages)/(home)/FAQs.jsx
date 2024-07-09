@@ -7,7 +7,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { faqs } from '@/lib/const';
+import { faqs } from '@/lib/datas/const';
 import FadeUp from "@/components/animaitons/FadeUp";
 import FadeLeft from "@/components/animaitons/FadeLeft";
 
