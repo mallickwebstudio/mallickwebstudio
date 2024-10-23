@@ -5,6 +5,7 @@ import { Ilogo } from '@/components/ui/svgs';
 import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
 import NavigationLinks from './NavigationLinks';
+import { siteConfig } from '@/lib/datas/metaDatas';
 
 export default function Header() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function Header() {
 
         <Link className="w-fit flex-center" href="/">
           <Ilogo className="size-16" />
-          <span className='sr-only'>webdevsalmann</span>
+          <span className='sr-only'>{siteConfig.name}</span>
         </Link>
 
 

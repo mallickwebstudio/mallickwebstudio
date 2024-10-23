@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/datas/metaDatas";
 import Link from "next/link";
 
 export default function PrivacyPolicy() {
@@ -7,7 +8,7 @@ export default function PrivacyPolicy() {
             <div className="section-wrapper">
                 <h2 className="text-left">Who We Are</h2>
                 <p>I am Salman Mallick from India.</p>
-                <p>Our website address is: https://webdevsalmann.com.</p>
+                <p>Our website address is: https://mallickwebstudio.com.</p>
 
                 <h2 className="text-left">Personal Information Collection</h2>
                 <p>We do not personally collect any personal information from you unless you voluntarily provide it through the forms you fill out.</p>
@@ -21,7 +22,7 @@ export default function PrivacyPolicy() {
                 </p>
 
                 <h2 className="text-left">Copyright Notice</h2>
-                <p>&copy;{currentYear}webdevsalmann. All rights reserved.</p>
+                <p>&copy;{currentYear} {siteConfig.name}. All rights reserved.</p>
             </div>
         </section>
     )

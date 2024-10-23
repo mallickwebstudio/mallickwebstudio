@@ -176,7 +176,7 @@ export const faqs = [
   {
     id: "faq5",
     question: "Will you work for agencies?",
-    answer: "If you run an agency that needs help with an upcoming project I would love to know more. Please note that I am only interested in projects that are using React, Next.js and Sanity. To discuss further please email webdevsalman7869@gmail.com."
+    answer: "If you run an agency that needs help with an upcoming project I would love to know more. Please note that I am only interested in projects that are using React, Next.js and Sanity. To discuss further please email salmanmallick3216@gmail.com."
   },
 ]
 

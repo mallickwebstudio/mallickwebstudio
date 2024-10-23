@@ -32,5 +32,5 @@
 - Shadcn-UI
 
 ## Connect with me:  
-[Portfolio](https://webdevsalmann.vercel.app/)  
-[Instagram](https://www.instagram.com/webdevsalmann/)
+[Portfolio](https://mallickwebstudio.com/)  
+[Instagram](https://www.instagram.com/mallickwebstudio_/)
