@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
                 <p>
                     This website is build with Nextjs (react framework) and deployed on <Link className="text-link" href="https://vercel.com/legal/privacy-policy"> vercel.com</Link>.
                     The form used is form  <Link className="text-link" href="https://formspree.io/legal/privacy-policy/">formspree.io</Link>.
-                    We use <Link className="text-link" href="https://formspree.io/legal/privacy-policy/">Google search console</Link>to monitor and analyze our website&apos;s performance in Google search results.
+                    We use <Link className="text-link" href="https://search.google.com">Google search console</Link> and <Link className="text-link" href="https://analytics.google.com">Google analytics</Link> to monitor and analyze our website&apos;s performance in Google search results.
                 </p>
 
                 <h2 className="text-left">Copyright Notice</h2>

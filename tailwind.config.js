@@ -18,14 +18,14 @@ module.exports = {
     },
     extend: {
       spacing: {
-        'xs': '12px',
-        'sm': '16px',
-        'base': '20px',
-        'lg': '24px',
-        'xl': '28px',
-        '2xl': '32px',
-        '3xl': '36px',
-        'block': '48px',
+        'xs': '0.5rem'/* 8px */,
+        'sm': '0.75rem'/* 12px */,
+        'base': '1rem'/* 16px */,
+        'lg': '1.25rem'/* 20px */,
+        'xl': '1.5rem'/* 24px */,
+        '2xl': '2rem'/* 32px */,
+        '3xl': '2.25rem'/* 36px */,
+        'block': '3rem'/* 48px */,
       },
       transitionDuration: {
         '5000': '7000ms',

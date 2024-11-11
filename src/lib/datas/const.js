@@ -9,27 +9,27 @@ import Link from "next/link";
 export const navigationLinks = [
   {
     title: "Home",
-    path: "/",
+    href: "/",
     varient: "ghost"
   },
   {
     title: "About",
-    path: "/about",
+    href: "/about",
     varient: "ghost"
   },
   {
     title: "Services",
-    path: "/services",
+    href: "/services",
     varient: "ghost"
   },
   {
     title: "Portfolio",
-    path: "/portfolio",
+    href: "/portfolio",
     varient: "ghost"
   },
   {
     title: "Contact Me",
-    path: "/contact",
+    href: "/contact",
     varient: ""
   }
 ]
@@ -132,19 +132,19 @@ export const services = [
     icon: <PencilRuler className="size-8 group-hover:text-primary" />,
     title: "Website Design & Development",
     description: "Jumpstart and establish your brand with your first website or get your existing website redesigned/updated.",
-    link: "/services/website-design-development"
+    href: "/services/website-design-development"
   },
   {
     icon: <Wrench className="size-8 group-hover:text-primary" />,
     title: "Website Updates",
     description: "Anything from Website Updates, Bug Fixes, Content changes, or additions of any kind.",
-    link: "/services/website-updates"
+    href: "/services/website-updates"
   },
   {
     icon: <ChevronsUp className="size-8 group-hover:text-primary" />,
     title: "Speed Optimization",
     description: "Get your website loading faster. A slow site can easily loose visitors and customers.",
-    link: "/services/speed-optimization"
+    href: "/services/speed-optimization"
   },
 ];
 
@@ -216,7 +216,7 @@ export const pricing = [
       },
     ],
     additionalFeature: "+$30/per Extra Website Page",
-    price: 149
+    price: 199
   },
   {
     id: "advancePricing",
@@ -249,7 +249,7 @@ export const pricing = [
       },
     ],
     additionalFeature: "+$30/per Extra Website Page",
-    price: 259
+    price: 499
   }
 ]
 

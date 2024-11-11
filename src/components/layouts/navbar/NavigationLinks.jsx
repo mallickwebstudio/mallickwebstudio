@@ -10,7 +10,7 @@ export default function NavigationLinks() {
         <>
             {navigationLinks.map((item) => (
                 <li key={item.title}>
-                    <Link className={`${buttonVariants({ variant: item.varient, size: 'sm' })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`} href={item.path}>
+                    <Link className={`${buttonVariants({ variant: item.varient, size: 'sm' })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`} href={item.href}>
                         {item.title}
                     </Link>
                 </li>

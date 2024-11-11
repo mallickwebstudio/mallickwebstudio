@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import ThemeToggleBtn from "@/components/ui/ThemeToggleBtn"
-import { Ilogo } from '@/components/ui/svgs';
+import { LogoHorizontal } from '@/components/ui/svgs';
 import { AlignRight, X } from 'lucide-react';
 import { useState } from 'react';
 import NavigationLinks from './NavigationLinks';
@@ -14,8 +14,8 @@ export default function Header() {
     <header className={`container p-0 w-full bg-background md:border-0 ${isNavbarOpen && "border-b"}`}>
       <nav className="px-[5%] py-2 w-full h-full grid grid-cols-2 md:grid-cols-7 gap-base justify-center items-center">
 
-        <Link className="w-fit flex-center" href="/">
-          <Ilogo className="size-16" />
+        <Link className="block h-16 flex-center w-fit" href="/">
+          <LogoHorizontal className="h-16 text-primary" />
           <span className='sr-only'>{siteConfig.name}</span>
         </Link>
 
