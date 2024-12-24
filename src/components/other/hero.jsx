@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import FadeUp from "@/components/animaitons/FadeUp";
 import ZoomIn from "../animaitons/ZoomIn";
 
 export default function Hero({ className, heading, children }) {

@@ -1,26 +1,34 @@
 "use client";
-import { useFmaosConfig } from '@/hooks/fmaos-config-provider';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-const variants = (initialOffset) => ({
-    hidden: { opacity: 0, x: initialOffset },
-    visible: { opacity: 1, x: 0 }
-});
+const defaultVariants = {
+    hidden: { opacity: 0, x: 60 },
+    visible: { opacity: 1, x: 0 },
+};
 
-export default function FadeLeft({ children, className, ...props }) {
-    const { fmaosConfig } = useFmaosConfig();
+export default function FadeLeft({
+    children,
+    tag: Tag = "div",
+    className,
+    once = true,
+    animateOn = "whileInView",
+    variants = defaultVariants,
+    viewport = { once },
+    ...props
+}) {
+    const MotionTag = motion(Tag);
 
     return (
-        <motion.div
+        <MotionTag
             className={className}
-            variants={props.variants ?? variants(fmaosConfig.initialOffset)}
-            initial={props.initial ?? "hidden"}
-            whileInView={props.whileInView ?? "visible"}
-            transition={props.transition ?? fmaosConfig.transition}
-            viewport={props.viewport ?? fmaosConfig.viewport}
+            initial="hidden"
+            {...{ [animateOn]: "visible" }}
+            variants={variants}
+            viewport={animateOn === "whileInView" ? viewport : undefined
+            }
             {...props}
         >
             {children}
-        </motion.div>
+        </MotionTag>
     );
 }

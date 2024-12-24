@@ -9,43 +9,41 @@ export default function HowWeWork() {
   return (
     <section className="bg-section-secondary" id="strategy">
       <div className="section-wrapper">
-        <FadeUp>
-          <h2>Our Effective <SparkleText text=" Work Strategy" /></h2>
+        <FadeUp tag="h2">
+          Our Effective <SparkleText text=" Work Strategy" />
         </FadeUp>
-        <FadeUp>
-          <p className="-mt-base mx-auto md:w-2/3 md:text-center">Our Seven Phases Structured Approach from Analysis to Deployment in Our Website Building Process</p>
+        <FadeUp tag="p" className="-mt-base mx-auto md:w-2/3 md:text-center text-muted-foreground">
+          Our Seven Phases Structured Approach from Analysis to Deployment in Our Website Building Process
         </FadeUp>
 
         <div className="mt-block grid sm:grid-cols-2 lg:grid-cols-3 gap-base">
           {porjectPhases.map((item, i) => (
             <FadeUp key={item.phase + "AboutPhaseCard"}>
               <div className="p-4 border rounded-md overflow-hidden group/card" >
-                <FadeLeft>
-                  <div className="flex items-center text-muted-foreground/50 group-hover/card:text-muted-foreground">
-                    <Hash className="size-4" />
-                    <div className="font- text-xl font-bold">{item.phase}</div>
-                  </div>
+                <FadeLeft className="flex items-center text-muted-foreground/50 group-hover/card:text-muted-foreground">
+                  <Hash className="size-4" />
+                  <span className="font- text-xl font-bold">{item.phase}</span>
                 </FadeLeft>
 
-                <FadeLeft>
-                  <div className="mt-sm text-2xl font-bold">{item.title}</div>
+                <FadeLeft tag="h3" className="mt-sm">
+                  {item.title}
                 </FadeLeft>
 
-                <FadeLeft>
-                  <p className="mt-xs text-xs">{item.description}</p>
+                <FadeLeft tag="p" className="mt-xs text-xs text-muted-foreground">
+                  {item.description}
                 </FadeLeft>
 
-                <ul className="mt-base">
+                <ul className="mt-base space-y-xs">
                   {item.includes.map((item, i) => (
                     <FadeLeft
+                      className="group"
+                      tag="li"
                       transition={{
                         type: "spring",
                         delay: i * 0.3
                       }}
                       key={item + "PhaseDescription"}>
-                      <li className="flex gap-2 items-center text-muted-foreground group leading-8">
-                        <CheckCheck className="size-5 shrink-0 group-hover:text-primary" /> <div>{item}</div>
-                      </li>
+                      <CheckCheck className="inline-block mr-sm size-5 shrink-0 group-hover:text-primary" /> <span>{item}</span>
                     </FadeLeft>
                   ))}
                 </ul>
@@ -56,6 +54,6 @@ export default function HowWeWork() {
 
         </div>
       </div>
-    </section>
+    </section >
   )
 }

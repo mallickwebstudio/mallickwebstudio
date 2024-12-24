@@ -1,26 +1,33 @@
 "use client"
-import { motion } from 'framer-motion';
-import { useFmaosConfig } from '@/hooks/fmaos-config-provider';
+import { motion } from "framer-motion";
 
-const variants = (initialOffset) => ({
+const defaultVariants = {
     hidden: { scale: 0 },
-    visible: { scale: 1 }
-});
+    visible: { scale: 1 },
+};
 
-export default function ZoomIn({ children, className, ...props }) {
-    const { fmaosConfig } = useFmaosConfig();
+export default function ZoomIn({
+    children,
+    tag: Tag = "div",
+    className,
+    once = true,
+    animateOn = "whileInView",
+    variants = defaultVariants,
+    viewport = { once },
+    ...props
+}) {
+    const MotionTag = motion(Tag);
 
     return (
-        <motion.div
+        <MotionTag
             className={className}
-            variants={props.variants ?? variants(fmaosConfig.initialOffset)}
-            initial={props.initial ?? "hidden"}
-            whileInView={props.whileInView ?? "visible"}
-            transition={props.transition ?? fmaosConfig.transition}
-            viewport={props.viewport ?? fmaosConfig.viewport}
+            initial="hidden"
+            {...{ [animateOn]: "visible" }}
+            variants={variants}
+            viewport={animateOn === "whileInView" ? viewport : undefined}
             {...props}
         >
             {children}
-        </motion.div>
+        </MotionTag>
     );
 }

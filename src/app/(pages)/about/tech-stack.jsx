@@ -31,8 +31,8 @@ export default function TechStack() {
   return (
     <section className="bg-section-pattern-2">
       <div className="section-wrapper">
-        <FadeUp>
-          <h2 className="mb-2">Go To <SparkleText text="Tech Stack" /></h2>
+        <FadeUp tag="h2">
+          Go To <SparkleText text="Tech Stack" />
         </FadeUp>
 
         <div className="mt-block mx-auto w-fit">

@@ -8,8 +8,8 @@ export default function Pricing() {
     <section className="bg-section-pattern-2" id="pricing">
       <div className="section-wrapper">
         <div className="mx-auto">
-          <FadeUp>
-            <h2>Quality and Affordable Website <SparkleText text="Pricing" /></h2>
+          <FadeUp tag="h2">
+            Quality and Affordable Website <SparkleText text="Pricing" />
           </FadeUp>
 
 

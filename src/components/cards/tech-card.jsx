@@ -12,7 +12,7 @@ export default function TechCard({ data:{href, imageUrl, icon, label} }) {
                     alt={label}
                 /> : icon}
             </div>
-            <span className='mt-2 relative text-center text-muted-foreground text-xs'>{label}</span>
+            <h3 className='mt-2 relative text-center text-muted-foreground text-xs'>{label}</h3>
         </Link>
     )
 }

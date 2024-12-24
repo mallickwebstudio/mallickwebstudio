@@ -11,8 +11,8 @@ export default function Projects() {
     return (
         <section className="bg-section-secondary">
             <div className="section-wrapper">
-                <FadeUp>
-                    <h2><SparkleText text="Portfolio" /></h2>
+                <FadeUp tag="h2">
+                   <SparkleText text="Portfolio" />
                 </FadeUp>
 
                 <div className="my-block grid md:grid-cols-2 gap-base ">

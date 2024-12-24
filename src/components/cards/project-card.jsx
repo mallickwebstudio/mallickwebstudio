@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
-import { ExternalLink, SquareArrowOutUpRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export default async function ProjectCard({ data: { title, description, link, imageUrl, concept } }) {
     const arr = concept;
@@ -15,17 +15,17 @@ export default async function ProjectCard({ data: { title, description, link, im
             {/* Description */}
             <div className="p-4">
                 <div className="flex-between">
-                    <h3>{title}</h3>
+                    <h3 className="text-lg">{title}</h3>
                     <Link className={buttonVariants({ variant: "link" })} href={link} target="blank">
                         Open <ExternalLink className="size-4 ml-2" />
                     </Link>
                 </div>
-                <div className="text-muted-foreground">{description}</div>
+                <p className="text-muted-foreground text-sm">{description}</p>
             </div>
 
             {/* Learnings */}
             {arr &&
-                <div className="absolute top-4 left-4 bg-blue-100/40 backdrop-blur-xl font-bold text-blue-950 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 manage-text max-w-[10rem]"> {
+                <div className="absolute top-4 left-4 bg-blue-100/50 backdrop-blur-xl font-bold text-green-950 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 manage-text max-w-[10rem]"> {
                     arr.map(item => {
                         return <div key={item} className="capitalize">{item}</div>
                     })

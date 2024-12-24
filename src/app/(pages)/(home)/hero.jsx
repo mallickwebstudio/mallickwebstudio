@@ -23,7 +23,7 @@ const item = {
 
 export default function Hero() {
     return (
-        <section>
+        <section id="hero">
             <div className="section-wrapper">
 
                 <div className="grid gap-8 md:grid-cols-5">
@@ -32,20 +32,21 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <motion.div variants={item} className="text-2xl self-start">
-                            I&apos;m Salman Mallick
-                        </motion.div>
-                        <motion.h1 variants={item} className="my-base leading-[55px] self-start">
-                            <span className="clr-p"><SparkleText text="UI/UX" /></span> Designer, <br />
-                            <span className="clr-p"><SparkleText text="Full Stack" /></span> Website Developer
+                        <motion.h1 variants={item} className="text-2xl font-normal self-start">
+                            I&apos;m Mohammad Salman Mallick
                         </motion.h1>
 
-                        <motion.p variants={item} className="md:w-4/5 self-start">
+                        <motion.p variants={item} className="h1 my-base leading-[55px] self-start">
+                            <span className="clr-p"><SparkleText text="UI/UX" /></span> Designer, <br />
+                            <span className="clr-p"><SparkleText text="Full Stack" /></span> Website Developer
+                        </motion.p>
+
+                        <motion.p variants={item} className="md:w-4/5 self-start text-muted-foreground">
                             Specializing in <span className="font-bold"> purpose-driven </span>  websites tailored for small and medium-sized businesses, we are committed to enhancing your <span className="font-bold"> market engagement </span>  and ensuring a positive customer experience.
                         </motion.p>
 
                         <motion.div variants={item} className="mt-base self-start">
-                            <Link className={`${buttonVariants()}`} href="/contact" >Hire Now</Link>
+                            <Link className={buttonVariants()} href="/contact" >Hire Now</Link>
                         </motion.div>
                     </motion.div>
 

@@ -21,17 +21,19 @@ export default function PricingCard({ data: {
             {/* Recommended */}
             {id === "advancePricing" ? (
                 <div className="absolute -top-sm left-0 right-0 w-full flex-center">
-                    <div className="py-1 px-3 bg-primary text-background uppercase tracking-wide font-semibold rounded">Recommended</div>
+                    <div className="py-1 px-3 bg-primary text-background uppercase tracking-wide font-semibold rounded">
+                        Recommended
+                    </div>
                 </div>
             ) : null}
 
             {/* Heading */}
             <div className="p-4 pt-8 text-center grid place-items-center">
-                <FadeUp>
-                    <h3>{title}</h3>
+                <FadeUp tag="h3">
+                    {title}
                 </FadeUp>
-                <FadeUp>
-                    <p className="mt-base text-sm">{description}</p>
+                <FadeUp tag="h4" className="mt-base text-sm">
+                    {description}
                 </FadeUp>
             </div>
 
@@ -39,11 +41,9 @@ export default function PricingCard({ data: {
             <div className="pb-4 border-t">
                 <ul className="mx-auto w-fit">
                     {benefits.map(item => (
-                        <FadeUp key={item.id + "PricingCardBenefits"}>
-                            <li className="mt-4 flex gap-4">
-                                <CheckCheck className="mt-[2px] size-5 shrink-0 text-primary" />
-                                <div className="">{item.feature}</div>
-                            </li>
+                        <FadeUp tag="li" className="mt-4" key={item.id + "PricingCardBenefits"}>
+                            <CheckCheck className="inline mr-sm size-5 shrink-0 text-primary" />
+                            <span>{item.feature}</span>
                         </FadeUp>
                     ))}
                 </ul>
@@ -52,8 +52,8 @@ export default function PricingCard({ data: {
             {/* Footer */}
             <div className="p-4 border-t grid place-items-center">
                 {/* Additional Features */}
-                <FadeUp>
-                    <div><span className="font-bold">Note:</span> {additionalFeature}</div>
+                <FadeUp tag="p">
+                    <b>Note:</b> {additionalFeature}
                 </FadeUp>
 
                 {offer && (
@@ -63,18 +63,16 @@ export default function PricingCard({ data: {
                 )}
 
                 <FadeUp>
-                    <div>
-                        <span className="inline-block font-bold">
-                            <span className={cn("", offer ? "text-base text-muted-foreground line-through font-normal" : "text-3xl text-primary")}>
-                                ${price}
+                    <span className="inline-block font-bold">
+                        <span className={cn("", offer ? "text-base text-muted-foreground line-through font-normal" : "text-3xl text-primary")}>
+                            ${price}
+                        </span>
+                        {offer && (
+                            <span className="text-3xl text-primary">
+                                {" "}${offerPrice}
                             </span>
-                            {offer && (
-                                <span className="text-3xl text-primary">
-                                    {" "}${offerPrice}
-                                </span>
-                            )}
-                        </span> (USD)
-                    </div>
+                        )}
+                    </span> (USD)
                 </FadeUp>
 
                 <Link className={`${buttonVariants()} mt-base hover:scale-105 transition-all`} href="/contact">

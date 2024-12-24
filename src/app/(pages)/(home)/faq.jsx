@@ -9,11 +9,11 @@ export default function FAQ() {
     return (
         <section>
             <div className="section-wrapper">
-                <FadeUp>
-                    <h2 className="mb-2"><SparkleText text="FAQs" /></h2>
+                <FadeUp tag="h2">
+                    <SparkleText text="FAQs" />
                 </FadeUp>
-                <FadeUp>
-                    <p className="mx-auto md:text-center md:w-2/3">Your Questions, Answered.</p>
+                <FadeUp tag="p" className="-mt-base mx-auto md:text-center text-muted-foreground md:w-2/3">
+                    Your Questions, Answered.
                 </FadeUp>
 
                 <div className="mt-block w-full grid md:grid-cols-2 gap-block">
@@ -21,7 +21,7 @@ export default function FAQ() {
                         {faqs.map(item => (
                             <FadeUp key={item.id + "HomeFAQ"}>
                                 <AccordionItem value={item.id}>
-                                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                                    <AccordionTrigger className="text-xl">{item.question}</AccordionTrigger>
                                     <AccordionContent>
                                         {item.answerJSX ? item.answerJSX : item.answer}
                                     </AccordionContent>

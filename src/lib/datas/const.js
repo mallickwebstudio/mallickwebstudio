@@ -139,6 +139,7 @@ export const services = [
     icon: <PencilRuler className="size-8 group-hover:text-primary" />,
     heading: <>Website <SparkleText text="Desing" /> & <SparkleText text="Development" /></>,
     title: "Website Design & Development",
+    pageTitle: <>Websites <SparkleText text="built"/> & <SparkleText text="designed" /> for <SparkleText text="success"/></>,
     description: "Jumpstart and establish your brand with your first website or get your existing website redesigned/updated.",
     href: "/services/website-design-and-development",
     benefits: [
@@ -184,6 +185,7 @@ export const services = [
     icon: <Wrench className="size-8 group-hover:text-primary" />,
     heading: <>Website <SparkleText text="Updates" /></>,
     title: "Website Update",
+    pageTitle: <><SparkleText text="Feeling aged?"/> time to <SparkleText text="upgrade"/></>,
     description: "Anything from Website Updates, Bug Fixes, Content changes, or additions of any kind.",
     href: "/services/website-update",
     benefits: [
@@ -224,6 +226,7 @@ export const services = [
     icon: <ChevronsUp className="size-8 group-hover:text-primary" />,
     heading: <>Speed <SparkleText text="Optimization" /></>,
     title: "Speed Optimization",
+    pageTitle: <>Let <SparkleText text="Google Rank"/> You</>,
     description: "Get your website loading faster. A slow site can easily loose visitors and customers.",
     href: "/services/speed-optimization",
     benefits: [

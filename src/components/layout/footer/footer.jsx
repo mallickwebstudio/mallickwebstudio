@@ -23,12 +23,12 @@ export default function Footer() {
 
             <div className="flex gap-base">
               <Link href={siteConfig.links.instagram}>
-                <Instagram className="w-8 h-8 text-muted-foreground hover:text-primary" />
+                <Instagram className="size-lg text-muted-foreground hover:text-primary" />
                 <span className="sr-only">Visit my Instagram</span>
               </Link>
 
               <Link href={siteConfig.links.github}>
-                <Github className="w-8 h-8 text-muted-foreground hover:text-primary" />
+                <Github className="size-lg text-muted-foreground hover:text-primary" />
                 <span className="sr-only">Visit my Facebook</span>
               </Link>
             </div>

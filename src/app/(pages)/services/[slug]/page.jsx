@@ -25,7 +25,7 @@ export default async function page({ params }) {
     return (
         <main>
             <Hero heading={item.heading} />
-            <Includes data={item.benefits} />
+            <Includes data={item} />
             <Contact className="bg-section-secondary" heading={<>Ready to take the <SparkleText text="next step?" /></>} />
             <OtherServices data={services.filter(item => item.slug !== slug)} />
         </main>
