@@ -11,6 +11,7 @@ export default function Service() {
                 <FadeUp tag="h2">
                     What <SparkleText text="Services" /> you get
                 </FadeUp>
+                
                 <div className="mt-block grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((item, i) => {
                         return (

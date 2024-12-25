@@ -17,8 +17,10 @@ export default function PricingCard({ data: {
     offerPrice
 } }) {
     return (
-        <div className={`relative p-4 h-fit border bg-background bg-opacity-5 rounded-md ${id === "advancePricing" ? "border-primary" : ""}`}>
-            {/* Recommended */}
+        <div
+            className={`relative p-4 h-fit border bg-background bg-opacity-5 rounded-md ${id === "advancePricing" ? "border-primary" : ""}`}
+            aria-labelledby={`pricing-card-${id}`}
+        >
             {id === "advancePricing" ? (
                 <div className="absolute -top-sm left-0 right-0 w-full flex-center">
                     <div className="py-1 px-3 bg-primary text-background uppercase tracking-wide font-semibold rounded">
@@ -27,31 +29,25 @@ export default function PricingCard({ data: {
                 </div>
             ) : null}
 
-            {/* Heading */}
-            <div className="p-4 pt-8 text-center grid place-items-center">
-                <FadeUp tag="h3">
+            <header className="p-4 pt-8 text-center grid place-items-center">
+                <FadeUp tag="h3" id={`pricing-card-${id}-title`}>
                     {title}
                 </FadeUp>
                 <FadeUp tag="h4" className="mt-base text-sm">
                     {description}
                 </FadeUp>
-            </div>
+            </header>
 
-            {/* Body */}
-            <div className="pb-4 border-t">
-                <ul className="mx-auto w-fit">
-                    {benefits.map(item => (
-                        <FadeUp tag="li" className="mt-4" key={item.id + "PricingCardBenefits"}>
-                            <CheckCheck className="inline mr-sm size-5 shrink-0 text-primary" />
-                            <span>{item.feature}</span>
-                        </FadeUp>
-                    ))}
-                </ul>
-            </div>
+            <ul className="pb-4 border-t mx-auto w-fit">
+                {benefits.map(item => (
+                    <FadeUp tag="li" className="mt-4" key={item.id + "PricingCardBenefits"}>
+                        <CheckCheck className="inline mr-sm size-5 shrink-0 text-primary" />
+                        <span>{item.feature}</span>
+                    </FadeUp>
+                ))}
+            </ul>
 
-            {/* Footer */}
             <div className="p-4 border-t grid place-items-center">
-                {/* Additional Features */}
                 <FadeUp tag="p">
                     <b>Note:</b> {additionalFeature}
                 </FadeUp>
@@ -75,10 +71,14 @@ export default function PricingCard({ data: {
                     </span> (USD)
                 </FadeUp>
 
-                <Link className={`${buttonVariants()} mt-base hover:scale-105 transition-all`} href="/contact">
+                <Link
+                    className={`${buttonVariants()} mt-base hover:scale-105 transition-all`}
+                    href="/contact"
+                    aria-label={`Get the ${title} website plan`}
+                >
                     Get This Website
                 </Link>
             </div>
         </div>
-    )
+    );
 }
