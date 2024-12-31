@@ -6,6 +6,7 @@ import Footer from '@/components/layout/footer/footer';
 import Providers from '@/hooks/providers';
 import { siteMd } from '@/lib/datas/metaDatas';
 import localFont from "next/font/local";
+import Notification from '@/components/other/notification';
 
 const rubik = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${rubik.className} ${rubik.variable}`} suppressHydrationWarning="true" suppressContentEditableWarning="true">
         <Providers>
+          <Notification />
           <Navbar />
           {children}
           <Footer />

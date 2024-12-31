@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import ThemeToggleButton from "@/components/other/theme-toggle-button";
 import { LogoHorizontal } from "@/components/other/svgs";
 
-function NavigationLinks() {
+function NavigationLinks({ closeNav }) {
   const path = usePathname();
 
   return (
@@ -20,9 +20,10 @@ function NavigationLinks() {
           <Link
             href={item.href}
             className={`${buttonVariants({
-              variant: item.varient,
+              variant: path === item.href ? "secondary" : item.varient,
               size: "sm",
-            })} ${path === item.path && "bg-accent"} capitalize text-muted-foreground`}
+            })} capitalize `}
+            onClick={closeNav}
           >
             {item.title}
           </Link>
@@ -66,15 +67,14 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div
           id="main-navigation"
-          className={`col-span-2 md:col-span-5 justify-self-center transition-all duration-300 ${
-            isNavbarOpen ? "flex" : "hidden"
-          } md:flex`}
+          className={`col-span-2 md:col-span-5 justify-self-center transition-all duration-300 ${isNavbarOpen ? "flex" : "hidden"
+            } md:flex`}
         >
           <ul
             className="relative flex-center flex-col gap-xs md:flex-row"
             role="menu"
           >
-            <NavigationLinks />
+            <NavigationLinks closeNav={() => setIsNavbarOpen(false)} />
             <li className="md:hidden">
               <ThemeToggleButton />
             </li>

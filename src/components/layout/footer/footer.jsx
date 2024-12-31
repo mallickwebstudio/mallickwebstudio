@@ -8,8 +8,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="border-t">
-      <div className="section-wrapper bg-section-secondary">
+    <footer className="border-t bg-section-secondary">
+      <div className="section-wrapper">
         <div className="grid gap-block md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-base">
             <Link className="block" href="/">

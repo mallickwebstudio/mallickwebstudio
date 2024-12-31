@@ -334,7 +334,7 @@ export const pricing = [
     additionalFeature: "+$100 / Additional Website Page",
     price: 1000,
     offer: true,
-    offerName: "End-of-Year Offer",
+    offerName: "New Year Fresh Start",
     offerPrice: 250,
   },
   {
@@ -370,7 +370,7 @@ export const pricing = [
     additionalFeature: "+$100 / Additional Website Page",
     price: 2000,
     offer: true,
-    offerName: "End-of-Year Offer",
+    offerName: "New Year Fresh Start",
     offerPrice: 500,
   },
   {
@@ -410,7 +410,7 @@ export const pricing = [
     additionalFeature: "+$100 / Additional Website Page",
     price: 8000,
     offer: true,
-    offerName: "End-of-Year Offer",
+    offerName: "New Year Fresh Start",
     offerPrice: 2000,
   }
 ]
