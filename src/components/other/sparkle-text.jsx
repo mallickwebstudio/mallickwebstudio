@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import { useEffect } from 'react';
 
-const SparkleText = ({ text, className }) => {
+const SparkleText = ({ text, className, textClassName }) => {
   const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -104,7 +104,7 @@ const SparkleText = ({ text, className }) => {
             <path d="M5 18H3" />
           </svg>
         </span>
-        <span className="magic-text">{text}</span>
+        <span className={cn("magic-text", textClassName)}>{text}</span>
       </span>
     </span>
   );
