@@ -13,17 +13,28 @@ import FadeUp from "@/components/animaitons/FadeUp";
 import { toast } from "@/hooks/use-toast";
 
 const FormSchema = z.object({
-    fullname: z.string(),
-    email: z.string().email(),
-    isHiring: z.boolean(),
-    socialPresence: z.string().optional(),
-    businessDescription: z.string().optional(),
-    interestedService: z.string(),
-    projectBudget: z.string(),
-    problemToSolve: z.string().optional(),
-    successDefinition: z.string().optional(),
-    message: z.string().optional(),
+    1420423600: z.string(),
+    1312960591: z.string().email(),
+    1810991679: z.boolean(),
+    2072962964: z.string().optional(),
+    2070585770: z.string().optional(),
+    1968061122: z.string(),
+    1196807936: z.string(),
+    1735202832: z.string().optional(),
+    614465234: z.string().optional(),
+    1226837338: z.string().optional(),
 });
+
+export async function formatData(data) {
+    const formattedData = new FormData();
+
+    Object.entries(data).forEach(([key, value]) => {
+        const transformedKey = `entry.${key}`;
+        formattedData.append(transformedKey, value);
+    });
+
+    return formattedData;
+}
 
 export default function FormBox() {
     const [btnDisable, setBtnDisable] = useState(false);
@@ -32,16 +43,16 @@ export default function FormBox() {
     const form = useForm({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-            fullname: "",
-            email: "",
-            isHiring: false,
-            socialPresence: "",
-            businessDescription: "",
-            interestedService: "",
-            projectBudget: "",
-            problemToSolve: "",
-            successDefinition: "",
-            message: "",
+            1420423600: "", // Full Name
+            1312960591: "", // Emain
+            1810991679: false, // Is Hiring
+            2072962964: "", // Social Presence
+            2070585770: "", // How You Get Here
+            1968061122: "", // Interested Service
+            1196807936: "", // Project Budget
+            1735202832: "", // Problem To Solve
+            614465234: "", // Success Defination 
+            1226837338: "", // message
         },
     });
     const { handleSubmit, formState: { isSubmitting } } = form;
@@ -50,32 +61,27 @@ export default function FormBox() {
     const onSubmit = async (data) => {
         try {
             setBtnDisable(true)
-            const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL, {
+
+            await fetch(process.env.NEXT_PUBLIC_CONTACT_FORM_URL, {
                 method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: await formatData(data),
+                mode: "no-cors",
             });
-            if (!response.ok) {
-                toast({
-                    variant: "destructive",
-                    title: "Something went wrong while submitting the form. Please try again later.",
-                });
-                setBtnDisable(false);
-                const responseData = await response.json();
-                console.error('Form submission failed:', responseData);
-            } else if (response.ok) {
-                toast({
-                    title: "Thank You for Reaching Out!",
-                    description: "Your message has been successfully sent. We will get back to you as soon as possible",
-                });
-                setTimeout(() => {
-                    setBtnDisable(false)
-                }, 60000);
-            }
+
+            toast({
+                title: "Thank You for Reaching Out!",
+                description: "Your message has been sent successfully. We will get back to you as soon as possible",
+            });
+            // setTimeout(() => {
+            setBtnDisable(false)
+            // }, 60000);
         } catch (error) {
             console.error('Error submitting form', error);
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: "We couldn't process your request. Please try again later.",
+            });
         }
     };
 
@@ -87,87 +93,81 @@ export default function FormBox() {
             >
 
                 {/* Full Name */}
-                <FadeUp>
-                    <FormField
-                        control={form.control}
-                        name="fullname"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="fullname">Full Name</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        id="fullname"
-                                        name="fullname"
-                                        type="text"
-                                        {...field}
-                                        placeholder="John Doe"
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
-                </FadeUp>
+                <FormField
+                    control={form.control}
+                    name="1420423600"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="1420423600">Full Name</FormLabel>
+                            <FormControl>
+                                <Input
+                                    id="1420423600"
+                                    name="1420423600"
+                                    type="text"
+                                    {...field}
+                                    placeholder="John Doe"
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
                 {/* email */}
-                <FadeUp>
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="email">Email</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        placeholder="doe007@mail.com"
-                                        type="text"
-                                        {...field}
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
-                </FadeUp>
+                <FormField
+                    control={form.control}
+                    name="1312960591"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="1312960591">Email</FormLabel>
+                            <FormControl>
+                                <Input
+                                    id="1312960591"
+                                    name="1312960591"
+                                    placeholder="doe007@mail.com"
+                                    type="text"
+                                    {...field}
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
                 {/* is Hiring */}
-                <FadeUp>
-                    <FormField
-                        control={form.control}
-                        name="isHiring"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="isHiring">Hire For Project</FormLabel>
-                                <FormControl>
-                                    <Switch
-                                        className="block"
-                                        id="isHiring"
-                                        name="isHiring"
-                                        checked={field.value}
-                                        onCheckedChange={field.onChange}
-                                    />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
-                </FadeUp>
+                <FormField
+                    control={form.control}
+                    name="1810991679"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="1810991679">Hire For Project</FormLabel>
+                            <FormControl>
+                                <Switch
+                                    className="block"
+                                    id="1810991679"
+                                    name="1810991679"
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
                 {/* Inquiry Form */}
-                {form.watch("isHiring") ? <div className="p-4 bg-section-secondary rounded">
+                {form.watch("1810991679") ? <div className="p-4 bg-section-secondary rounded">
                     <div className="mb-base font-semibold text-lg">Inquiry Form</div>
                     <div className="space-y-6">
 
                         {/* Social Presence */}
                         <FormField
                             control={form.control}
-                            name="socialPresence"
+                            name="2072962964"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="socialPresence">Website & Social Platforms (If Any)</FormLabel>
+                                    <FormLabel htmlFor="2072962964">Website & Social Platforms (If Any)</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            id="socialPresence"
-                                            name="socialPresence"
+                                            id="2072962964"
+                                            name="2072962964"
                                             type="text"
                                             {...field}
                                             placeholder="example.com, @example"
@@ -180,14 +180,14 @@ export default function FormBox() {
                         {/* What and How */}
                         <FormField
                             control={form.control}
-                            name="businessDescription"
+                            name="2070585770"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="businessDescription">What does your business do and how did you get here?</FormLabel>
+                                    <FormLabel htmlFor="2070585770">What does your business do and how did you get here?</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            id="businessDescription"
-                                            name="businessDescription"
+                                            id="2070585770"
+                                            name="2070585770"
                                             type="text"
                                             {...field}
                                             placeholder="we do ... by doing ..."
@@ -200,14 +200,14 @@ export default function FormBox() {
                         {/* Required Service */}
                         <FormField
                             control={form.control}
-                            name="interestedService"
+                            name="1968061122"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="interestedService">Which service are you interested in?</FormLabel>
+                                    <FormLabel htmlFor="1968061122">Which service are you interested in?</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            id="interestedService"
-                                            name="interestedService"
+                                            id="1968061122"
+                                            name="1968061122"
                                             type="text"
                                             {...field}
                                             placeholder="website development / Upgrade / Optimization / Other"
@@ -220,14 +220,14 @@ export default function FormBox() {
                         {/* Budget */}
                         <FormField
                             control={form.control}
-                            name="projectBudget"
+                            name="1196807936"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="projectBudget">What&apos;s your budget for this project?</FormLabel>
+                                    <FormLabel htmlFor="1196807936">What&apos;s your budget for this project?</FormLabel>
                                     <FormControl>
                                         <Input
-                                            id="projectBudget"
-                                            name="projectBudget"
+                                            id="1196807936"
+                                            name="1196807936"
                                             type="text"
                                             {...field}
                                             placeholder="(USD) $100 to ..."
@@ -240,14 +240,14 @@ export default function FormBox() {
                         {/* Problem & solution */}
                         <FormField
                             control={form.control}
-                            name="problemToSolve"
+                            name="1735202832"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="problemToSolve">What problems are you hoping to solve by working with us?</FormLabel>
+                                    <FormLabel htmlFor="1735202832">What problems are you hoping to solve by working with us?</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            id="problemToSolve"
-                                            name="problemToSolve"
+                                            id="1735202832"
+                                            name="1735202832"
                                             type="text"
                                             {...field}
                                             placeholder="We are distressed with ... and we are hoping to ..."
@@ -260,14 +260,14 @@ export default function FormBox() {
                         {/* Problem & solution */}
                         <FormField
                             control={form.control}
-                            name="successDefinition"
+                            name="614465234"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="successDefinition">What does success look like for this project?</FormLabel>
+                                    <FormLabel htmlFor="614465234">What does success look like for this project?</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            id="successDefinition"
-                                            name="successDefinition"
+                                            id="614465234"
+                                            name="614465234"
                                             type="text"
                                             {...field}
                                             placeholder="I want to see ..."
@@ -281,35 +281,31 @@ export default function FormBox() {
 
 
                 {/* Message */}
-                <FadeUp>
-                    <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="message">Message</FormLabel>
-                                <FormControl>
-                                    <Textarea
-                                        id="message"
-                                        name="message"
-                                        type="text"
-                                        {...field}
-                                        placeholder="Type your message here..."
-                                        required />
-                                </FormControl>
-                            </FormItem>
-                        )}
-                    />
-                </FadeUp>
+                <FormField
+                    control={form.control}
+                    name="1226837338"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel htmlFor="1226837338">Message</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    id="1226837338"
+                                    name="1226837338"
+                                    type="text"
+                                    {...field}
+                                    placeholder="Type your message here..."
+                                    required />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
 
                 {/* Submit Button */}
                 <div className="flex-center">
-                    <FadeUp>
-                        <Button className="w-fit" disabled={isSubmitting || btnDisable}>
-                            {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
-                            {!isSubmitting && <Send className="ml-2 size-3 inline" />}
-                        </Button>
-                    </FadeUp>
+                    <Button className="w-fit" disabled={isSubmitting || btnDisable}>
+                        {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" />} Send{isSubmitting && "ing"}
+                        {!isSubmitting && <Send className="ml-2 size-3 inline" />}
+                    </Button>
                 </div>
             </form>
         </Form>
