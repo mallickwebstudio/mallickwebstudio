@@ -9,8 +9,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
-import FadeUp from "@/components/animaitons/FadeUp";
 import { toast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
     1420423600: z.string(),
@@ -36,8 +36,19 @@ export async function formatData(data) {
     return formattedData;
 }
 
+// Helper functions to handle localStorage with expiration
+const  setWithExpiry = async (key, value, ttl) => {
+    const now = new Date();
+    const item = {
+        value: value,
+        expiry: now.getTime() + ttl, // TTL in milliseconds
+    };
+    localStorage.setItem(key, JSON.stringify(item));
+};
+
 export default function FormBox() {
     const [btnDisable, setBtnDisable] = useState(false);
+    const router = useRouter();
 
     // REACT HOOK FORM
     const form = useForm({
@@ -57,26 +68,35 @@ export default function FormBox() {
     });
     const { handleSubmit, formState: { isSubmitting } } = form;
 
-    //HANDLE SUBMIT
+    // Handle form submission
     const onSubmit = async (data) => {
         try {
-            setBtnDisable(true)
+            setBtnDisable(true);
 
+            // Store userName in localStorage with 1-day expiration (24 hours)
+            const userName = data[1420423600] || "Guest"; // Fallback to "Guest" if not provided
+            await setWithExpiry("mwsUserName", userName, 24 * 60 * 60 * 1000);
+
+            // Uncomment this for actual submission logic
             await fetch(process.env.NEXT_PUBLIC_CONTACT_FORM_URL, {
                 method: 'POST',
                 body: await formatData(data),
                 mode: "no-cors",
             });
 
-            toast({
-                title: "Thank You for Reaching Out!",
-                description: "Your message has been sent successfully. We will get back to you as soon as possible",
-            });
-            // setTimeout(() => {
-            setBtnDisable(false)
-            // }, 60000);
+            router.push("/thank-you");
+
+            // toast({
+            //     title: "Thank You for Reaching Out!",
+            //     description: `Your message has been sent successfully, ${userName}. We will get back to you as soon as possible.`,
+            // });
+
+            // Optionally re-enable the button after some delay
+            setTimeout(() => {
+                setBtnDisable(false);
+            }, 60000);
         } catch (error) {
-            console.error('Error submitting form', error);
+            console.error("Error submitting form", error);
             toast({
                 variant: "destructive",
                 title: "Error",
