@@ -1,6 +1,5 @@
 "use client"
 import { Toaster } from "@/components/ui/toaster"
-import { FmaosConfigProvider } from "@/hooks/fmaos-config-provider"
 import { ThemeProvider } from "./theme-provider"
 import { useEffect, useState } from "react";
 
@@ -21,10 +20,8 @@ export default function Providers({ children }) {
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange>
-            <FmaosConfigProvider>
                 {children}
                 <Toaster />
-            </FmaosConfigProvider>
         </ThemeProvider>
     )
 }

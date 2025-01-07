@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${rubik.className} ${rubik.variable}`} suppressHydrationWarning="true" suppressContentEditableWarning="true">
         <Providers>
-          <Notification />
+          {/* <Notification /> */}
           <Navbar />
           {children}
           <Footer />
