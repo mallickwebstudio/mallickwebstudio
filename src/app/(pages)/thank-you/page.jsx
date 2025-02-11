@@ -1,11 +1,14 @@
-"use client"
+"use client";
 
+import { useEffect, useState } from "react";
 import GoBackButton from "@/components/other/go-back-button";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const getWithExpiry = (key) => {
+    if (typeof window === "undefined") return null; // Ensure it's running on the client
+
     const itemStr = localStorage.getItem(key);
     if (!itemStr) return null;
 
@@ -20,28 +23,39 @@ const getWithExpiry = (key) => {
     return item.value;
 };
 
-export default function page() {
-    const userName = getWithExpiry("mwsUserName");
-    if(!userName) notFound()
+export default function Page() {
+    const [userName, setUserName] = useState(null);
+
+    useEffect(() => {
+        setUserName(getWithExpiry("mwsUserName"));
+    }, []);
+
+    if (!userName) return notFound();
+
     return (
         <main className="flex-1">
             <section>
                 <div className="section-wrapper">
-                    <div className='mx-auto w-full md:w-1/2 text-center grid place-items-center'>
-                        <h1 className='h2'>
+                    <div className="mx-auto w-full md:w-1/2 text-center grid place-items-center">
+                        <h1 className="h2">
                             Thank You for Reaching Out {userName}!
                         </h1>
-                        <h2 className='text-base font-normal -mt-base'>
+                        <h2 className="text-base font-normal -mt-base">
                             Your message has been sent successfully, We will get back to you as soon as possible.
                         </h2>
 
-                        <div className='mt-base flex gap-2'>
+                        <div className="mt-base flex gap-2">
                             <GoBackButton />
-                            <Link className={`${buttonVariants({ variant: "outline" })} `} href="/">Return Home</Link>
+                            <Link
+                                className={`${buttonVariants({ variant: "outline" })} `}
+                                href="/"
+                            >
+                                Return Home
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-    )
+    );
 }

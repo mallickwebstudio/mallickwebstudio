@@ -1,5 +1,4 @@
 import ServiceIncludeCard from "@/components/cards/service-include-card"
-import SparkleText from "@/components/other/sparkle-text"
 
 export default function Includes({ data: { pageTitle, benefits } }) {
     return (

@@ -10,7 +10,7 @@ export const siteConfig = {
         instagram: "https://instagram.com/mallickwebstudio_",
         github: "https://github.com/mallickwebstudio/",
     },
-    owner: "Salman Mallick"
+    owner: "Mohammad Salman Mallick"
 }
 
 // ===================================================

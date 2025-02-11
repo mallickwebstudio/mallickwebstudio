@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { CheckCheck } from "lucide-react";
-import FadeUp from "../animaitons/FadeUp";
 import { cn } from "@/lib/utils";
 import SparkleText from "../other/sparkle-text";
 
@@ -30,35 +29,35 @@ export default function PricingCard({ data: {
             ) : null}
 
             <header className="p-4 pt-8 text-center grid place-items-center">
-                <FadeUp tag="h3" id={`pricing-card-${id}-title`}>
+                <h3 id={`pricing-card-${id}-title`}>
                     {title}
-                </FadeUp>
-                <FadeUp tag="h4" className="mt-base text-sm">
+                </h3>
+                <h4 className="mt-base text-sm">
                     {description}
-                </FadeUp>
+                </h4>
             </header>
 
             <ul className="pb-4 border-t mx-auto w-fit">
                 {benefits.map(item => (
-                    <FadeUp tag="li" className="mt-4" key={item.id + "PricingCardBenefits"}>
+                    <li className="mt-4" key={item.id + "PricingCardBenefits"}>
                         <CheckCheck className="inline mr-sm size-5 shrink-0 text-primary" />
                         <span>{item.feature}</span>
-                    </FadeUp>
+                    </li>
                 ))}
             </ul>
 
             <div className="p-4 border-t grid place-items-center">
-                <FadeUp tag="p">
+                <p>
                     <b>Note:</b> {additionalFeature}
-                </FadeUp>
+                </p>
 
                 {offer && (
-                    <FadeUp className="mt-base">
+                    <div className="mt-base">
                         <SparkleText className="italic" text={offerName} />
-                    </FadeUp>
+                    </div>
                 )}
 
-                <FadeUp>
+                <div>
                     <span className="inline-block font-bold">
                         <span className={cn("", offer ? "text-base text-muted-foreground line-through font-normal" : "text-3xl text-primary")}>
                             ${price}
@@ -69,7 +68,7 @@ export default function PricingCard({ data: {
                             </span>
                         )}
                     </span> (USD)
-                </FadeUp>
+                </div>
 
                 <Link
                     className={`${buttonVariants()} mt-base hover:scale-105 transition-all`}

@@ -1,4 +1,3 @@
-import FadeUp from "../animaitons/FadeUp"
 import ServiceCard from "../cards/service-card"
 
 export default function OtherServices({ data }) {
@@ -11,9 +10,7 @@ export default function OtherServices({ data }) {
                 <div className="mt-block grid sm:grid-cols-2 gap-base">
                     {data.map((item, i) => {
                         return (
-                            <FadeUp key={i + "ServiceServiceCard"} >
-                                <ServiceCard data={item} />
-                            </FadeUp>
+                            <ServiceCard data={item} key={i + "ServiceServiceCard"} />
                         )
                     })}
                 </div>

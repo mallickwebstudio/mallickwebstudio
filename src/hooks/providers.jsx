@@ -1,27 +1,27 @@
-"use client"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "./theme-provider"
-import { useEffect, useState } from "react";
+import { isBrowser } from "framer-motion";
 
 export default function Providers({ children }) {
-    const [isHydrated, setIsHydrated] = useState(false);
-
-    useEffect(() => {
-        setIsHydrated(true);
-    }, []);
-
-    if (!isHydrated) {
-        return null; // Prevent rendering until hydration is complete
+    if (!isBrowser) {
+        return (
+            <>
+                {children}
+                <Toaster />
+            </>
+        )
     }
 
     return (
         <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
-            disableTransitionOnChange>
-                {children}
-                <Toaster />
+            disableTransitionOnChange
+            enableColorScheme
+        >
+            {children}
+            <Toaster />
         </ThemeProvider>
     )
 }
