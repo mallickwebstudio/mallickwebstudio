@@ -41,13 +41,13 @@ export const navigationLinks = [
 ]
 
 export const projectsData = [
-  // {
-  //   title: "Nova Cart",
-  //   description: "Discover sustainable style and connect with us for exclusive offers and updates.",
-  //   link: "https://wds-novacart.vercel.app",
-  //   concept: ["NextJS", "Sanity.io", "stripe-payment", "ShadcnUI"],
-  //   imageUrl: "/images/projects/novacart.png",
-  // },
+  {
+    title: "Nahar Ayurvedic Pharmacy",
+    description: "Power of Nature with Authentic Ayurvedic Remedies",
+    link: "https://naharayurvedicpharmacy.vercel.app/",
+    concept: ["NextJS", "ShadcnUI", "DB Management"],
+    imageUrl: "/images/projects/naharayurvedicpharmacy.jpg",
+  },
   // {
   //   title: "Regal Estate",
   //   description: "Experience the epitome of luxury with our meticulously crafted estate website, offering seamless navigation and stunning visuals.",

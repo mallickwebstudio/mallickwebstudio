@@ -10,24 +10,26 @@ export default function Purpose() {
       <div className="relative section-wrapper grid md:grid-cols-2 gap-block">
         {/* Image Gallery */}
         <aside
-          className="md:sticky top-block w-full h-fit grid grid-cols-2 gap-base"
+          className="md:sticky top-block w-full h-fit grid grid-cols-3 gap-base"
           aria-labelledby="project-gallery-heading"
         >
           <h3 id="project-gallery-heading" className="sr-only">
             Featured Projects Gallery
           </h3>
           {[
+            { src: "/images/projects/naharayurvedicpharmacy.jpg", alt: "pharmacy website" },
+            { src: "/images/projects/zenflex.jpg", alt: "zenflex website" },
             { src: "/images/projects/regalestate.png", alt: "Regalestate website" },
+            { src: "/images/projects/foodie.jpg", alt: "Foodie website" },
             { src: "/images/projects/bugbuster.png", alt: "Bugbuster website" },
             { src: "/images/projects/cofeco.jpg", alt: "Cofeco website" },
-            { src: "/images/projects/foodie.jpg", alt: "Foodie website" },
           ].map((item, index) => (
             <div
               key={index}
-              className="relative w-full aspect-square overflow-hidden rounded-md"
+              className="relative w-full"
             >
               <Image
-                className="relative w-full aspect-square object-cover object-top rounded"
+                className="relative w-full aspect-[3/4] object-cover object-top rounded-md overflow-hidden"
                 width={150}
                 height={150}
                 src={item.src}
