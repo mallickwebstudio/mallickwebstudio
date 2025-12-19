@@ -17,7 +17,10 @@ export default function Page() {
       {services.map((service, index) => (
         <section
           id={service.slug}
-          className={cn("relative bg-background", index == 1 && "border-y")}
+          className={cn(
+            "relative bg-background",
+            index == 1 && "border-y"
+          )}
           role="region"
           aria-label={`${service.title} Service section`}
           key={service.title + "ServicePage"}
@@ -25,7 +28,7 @@ export default function Page() {
           <div className="mx-auto container px-6 py-12 md:p-16 lg:py-20 grid items-end grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
 
             {/* ---- Title + Description ---- */}
-            <header className={cn("mb-8", index === 1 && "order-1")}>
+            <header className={cn("mb-8", index === 1 && "md:order-1")}>
               <h2 className="h2">
                 <SparkleText text={service.title} />
                 {/* {service.title} */}

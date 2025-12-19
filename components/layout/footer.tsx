@@ -25,7 +25,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer
-      className="relative bg-secondary"
+      className="relative bg-linear-to-t from-secondary to-background"
       aria-labelledby="footer-heading"
       role="region"
     >

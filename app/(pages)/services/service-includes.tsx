@@ -63,8 +63,8 @@ export default function ServiceIncludes({ benefits }: { benefits: ServiceBenefit
         ))}
       </CarouselContent>
 
-      <CarouselPrevious className="cursor-pointer -left-4 md:-left-12" />
-      <CarouselNext className="cursor-pointer -right-4 md:-right-12" />
+      <CarouselPrevious className="cursor-pointer -left-4 md:-left-10" />
+      <CarouselNext className="cursor-pointer -right-4 md:-right-10" />
 
       {/* --- Dot Indicators --- */}
       <div className="mt-6 flex items-center justify-center gap-2">

@@ -8,9 +8,6 @@ export default function sitemap() {
             url: baseUrl,
         },
         {
-            url: `${baseUrl}/about`,
-        },
-        {
             url: `${baseUrl}/services`,
         },
         {
@@ -18,9 +15,6 @@ export default function sitemap() {
         },
         {
             url: `${baseUrl}/contact`,
-        },
-        {
-            url: `${baseUrl}/hire`,
         },
         {
             url: `${baseUrl}/privacy-policy`,

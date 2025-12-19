@@ -40,7 +40,7 @@ export default function ProcessVisualBlock() {
   const [activePhase, setActivePhase] = useState<PhaseSlug>(projectPhases[0].slug);
 
   return (
-    <div className="mt-12 hidden md:grid grid-cols-2 gap-8 md:gap-10">
+    <div className="mt-12 hidden lg:grid grid-cols-2 gap-8 md:gap-10">
       <div className="my-20">
         {projectPhases.map((item) => (
           <ScrollDetectorCard

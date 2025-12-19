@@ -11,7 +11,7 @@ export default function Page() {
     <>
       <Hero heading={<span>Portfolio <SparkleText text="Projects" /></span>} />
       <Portfolio/>
-      <Contact className="bg-section-secondary" heading={<>Have Any <SparkleText text="projects" /> In Mind?</>} />
+      <Contact heading={<>Have Any <SparkleText text="projects" /> In Mind?</>} />
     </>
   )
 }

@@ -41,7 +41,7 @@ export default function WorkingProcess() {
 // Process Carousel Component
 function ProcessCarousel() {
   return (
-    <div className="mt-12 md:hidden">
+    <div className="mt-12 lg:hidden">
       <Carousel
         plugins={[
           Autoplay({

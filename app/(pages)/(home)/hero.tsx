@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import SparkleText from "@/components/other/sparkle-text";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import heroLottie from "@/lottie/hero-three.json";
+import heroLottie from "@/lottie/hero.json";
 
 
 export default function Hero() {
@@ -47,14 +47,6 @@ export default function Hero() {
 
         {/* Hero Image */}
         <div className="relative w-full aspect-square overflow-hidden flex justify-center">
-          {/* <Image
-            className="w-full min-w-sm max-w-sm aspect-square object-contain rounded-md select-none pointer-events-none"
-            src="/images/illustration/hero.svg"
-            width={400}
-            height={400}
-            alt="Illustration of a person working on design and development"
-            priority
-          /> */}
           <div className="h-[90%] overflow-hidden flex items-start">
             <Lottie animationData={heroLottie} />
           </div>
