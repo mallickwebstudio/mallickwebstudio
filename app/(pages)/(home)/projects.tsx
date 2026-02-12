@@ -6,15 +6,6 @@ import { projectsData } from "@/lib/datas/const";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-import Autoplay from "embla-carousel-autoplay";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-
 export default function Projects() {
     return (
         <section
@@ -28,35 +19,11 @@ export default function Projects() {
                     <h2 className="h2 sr-only">Portfolio</h2>
                 </header>
 
-                {/* --- CAROUSEL START --- */}
-                <Carousel
-                    opts={{
-                        loop: true,
-                        align: "center",
-                    }}
-                    plugins={[
-                        Autoplay({
-                            delay: 10000,
-                        }),
-                    ]}
-                    className="w-full"
-                >
-                    <CarouselContent>
-
-                        {projectsData.slice(0, 5).map((item, index) => (
-                            <CarouselItem
-                                key={item.title + "HomeProjectCard"}
-                                className="basis-full"
-                            >
-                                <HomeProjectCard index={index} data={item} />
-                            </CarouselItem>
-                        ))}
-
-                    </CarouselContent>
-
-                    <CarouselPrevious className="hidden md:flex" />
-                    <CarouselNext className="hidden md:flex" />
-                </Carousel>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projectsData.slice(0, 3).map((item, index) => (
+                        <HomeProjectCard index={index} data={item} key={item.title + "HomeProjectCard"} />
+                    ))}
+                </div>
                 {/* --- CAROUSEL END --- */}
 
                 <div className="mt-8 md:mt-12 flex justify-center items-center">

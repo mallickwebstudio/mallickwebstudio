@@ -5,6 +5,7 @@ import SparkleText from "@/components/other/sparkle-text";
 import Link from "next/link";
 import Lottie from "lottie-react";
 import heroLottie from "@/lottie/hero.json";
+import { Badge } from "@/components/ui/badge";
 
 
 export default function Hero() {
@@ -18,6 +19,7 @@ export default function Hero() {
       <div className="relative mx-auto container px-6 py-12 md:p-16 lg:py-20 grid grid-cols-1 lg:grid-cols-[auto_1fr] items-center gap-8 md:gap-10">
         {/* Text Content */}
         <header className="relative max-w-2xl w-full">
+          <Badge variant="secondary">Creator of <Link className="text-primary hover:underline underline-offset-2" href="https://renblox.com"> Renblox</Link> - shadcn Blocks Library</Badge>
           <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-left">
             <span>
               <SparkleText text="Small Business" />

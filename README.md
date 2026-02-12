@@ -51,14 +51,3 @@
 **Deployment**  
 ![Vercel](https://img.shields.io/badge/-Vercel-%23ffffff?style=flat-square&logo=vercel&logoColor=000000)
 ![Netlify](https://img.shields.io/badge/-Netlify-%2300C7B7?style=flat-square&logo=netlify&logoColor=ffffff)
-
----
-
-### 📊 𝗦𝘁𝗮𝘁𝘀
-mallickwebstudio's GitHub stats
-
-## Connect with me:  
-[Portfolio](https://www.mallickwebstudio.com/portfolio)  
-[Instagram](https://www.instagram.com/mallickwebs/)
-
-

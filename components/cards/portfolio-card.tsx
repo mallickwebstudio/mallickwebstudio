@@ -37,7 +37,7 @@ export default async function PortfolioCard({
             </div>
 
             <div className={cn("relative p-4 group-hover:p-0 aspect-video transition-all overflow-hidden grayscale group-hover:grayscale-0 order-1", (index % 2 === 0) && "md:order-2")}>
-                <div className={`block size-full bg-cover bg-no-repeat group-hover:bg-bottom transition-all duration-10000 ease-linear rounded-md`} style={{ backgroundImage: `url('${image}')` }} />
+                <div className={`block size-full bg-cover bg-no-repeat group-hover:bg-bottom transition-all duration-10000 ease-linear rounded-md border`} style={{ backgroundImage: `url('${image}')` }} />
             </div>
         </div>
     )

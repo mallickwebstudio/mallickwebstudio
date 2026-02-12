@@ -7,7 +7,7 @@ export default function Service() {
     return (
         <section
             id="services"
-            className="relative"
+            className="relative bg-linear-to-b from-background to-secondary"
             role="region"
             aria-label="service section for introduction"
         >
